@@ -1,0 +1,14 @@
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\BusinessLayer.dll.config
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\CommonClasses.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\EntityFramework.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\CommonClasses.pdb
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\EntityFramework.xml
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\obj\Release\BusinessLayer.pdb

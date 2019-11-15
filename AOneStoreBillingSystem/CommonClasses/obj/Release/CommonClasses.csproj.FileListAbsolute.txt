@@ -1,0 +1,9 @@
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\CommonClasses.dll.config
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\CommonClasses.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\CommonClasses.pdb
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\EntityFramework.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\EntityFramework.xml
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\obj\Release\CommonClasses.dll
+C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\obj\Release\CommonClasses.pdb
