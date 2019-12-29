@@ -11,7 +11,7 @@ namespace DataAccessLayer
     {
         public List<CashierDetail> GetAllCashiers()
         {
-            using (Store_BillingEntities1 getAllCashier = new Store_BillingEntities1())
+            using (Store_BillingEntities getAllCashier = new Store_BillingEntities())
             {
                 return getAllCashier.CashierDetails.ToList();
             }
@@ -19,7 +19,7 @@ namespace DataAccessLayer
 
         public void AddLastLoggedInTimedForLoggedCashier(int cashierId)
         {
-            using (Store_BillingEntities1 addLastLoggedInTime = new Store_BillingEntities1())
+            using (Store_BillingEntities addLastLoggedInTime = new Store_BillingEntities())
             {
                 addLastLoggedInTime.CashierDetails.Where(obj => obj.CashierID == cashierId).ToList().ForEach(obj => obj.Last_LoggedIn_Time = DateTime.Now);
                 addLastLoggedInTime.SaveChanges();
@@ -28,23 +28,23 @@ namespace DataAccessLayer
 
         public List<StockDetail> GetAllProducts()
         {
-            using (Store_BillingEntities1 getAllProducts = new Store_BillingEntities1())
+            using (Store_BillingEntities getAllProducts = new Store_BillingEntities())
             {
                 return getAllProducts.StockDetails.ToList();
             }
         }
 
-        public void QuantityReduction(List<SalesDetail> purchasedProductDetails)
+        public void QuantityReduction(Dictionary<long, long> purchasedProductDetails)
         {
-            using (Store_BillingEntities1 reduceQuantityForPurchasedProduct = new Store_BillingEntities1())
+            using (Store_BillingEntities reduceQuantityForPurchasedProduct = new Store_BillingEntities())
             {
                 foreach(StockDetail stockUpdate in reduceQuantityForPurchasedProduct.StockDetails)
                 {
-                    foreach(SalesDetail billedProducts in purchasedProductDetails)
+                    foreach(KeyValuePair<long, long> billedProducts in purchasedProductDetails)
                     {
-                        if(billedProducts.ProductId == stockUpdate.ProductId)
+                        if(billedProducts.Key == stockUpdate.ProductId)
                         {
-                            stockUpdate.QuantityAvailable -= billedProducts.Quantity;
+                            stockUpdate.QuantityAvailable -= billedProducts.Value;
                             break;
                         }
                     }
@@ -55,7 +55,7 @@ namespace DataAccessLayer
 
         public List<SalesDetail> RetrieveAllSalesDetails()
         {
-            using (Store_BillingEntities1 allSalesDetails = new Store_BillingEntities1())
+            using (Store_BillingEntities allSalesDetails = new Store_BillingEntities())
             {
                 return allSalesDetails.SalesDetails.ToList();
             }
@@ -63,7 +63,7 @@ namespace DataAccessLayer
 
         public void AddSalesDetails(List<SalesDetail> billedProducts)
         {
-            using (Store_BillingEntities1 billedProductDetails = new Store_BillingEntities1())
+            using (Store_BillingEntities billedProductDetails = new Store_BillingEntities())
             {
                 billedProductDetails.SalesDetails.AddRange(billedProducts);
                 billedProductDetails.SaveChanges();
@@ -72,7 +72,7 @@ namespace DataAccessLayer
 
         public void AddCashierLastLogoutTime(int cashierId)
         {
-            using (Store_BillingEntities1 addLastLogoutTime = new Store_BillingEntities1())
+            using (Store_BillingEntities addLastLogoutTime = new Store_BillingEntities())
             {
                 addLastLogoutTime.CashierDetails.Where(obj => obj.CashierID == cashierId).ToList().ForEach(obj => obj.Last_LoggedOut_Time = DateTime.Now);
                 addLastLogoutTime.SaveChanges();

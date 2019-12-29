@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using CommonClasses;
 
 namespace AOneStoreBillingSystem
 {
@@ -15,6 +16,7 @@ namespace AOneStoreBillingSystem
     {
         public Admin admin;
         private BackgroundWorker backgroundWorker;
+        private bool isAnyButtonClicked = false;
 
         public AdminLogin()
         {
@@ -34,6 +36,7 @@ namespace AOneStoreBillingSystem
 
         private void Loginbutton_Click(object sender, EventArgs e)
         {
+            isAnyButtonClicked = true;
             Loginbutton.Enabled = false;
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += AuthenticateAdmin;
@@ -59,8 +62,8 @@ namespace AOneStoreBillingSystem
             bool isAuthenticated = (bool)e.Result;
             if (isAuthenticated)
             {
-                AdminHomePage adminHomePage = new AdminHomePage(adminUserId_textBox.Text);
                 Close();
+                AdminHomePage adminHomePage = new AdminHomePage(adminUserId_textBox.Text);    
                 adminHomePage.Show();
             }
             else
@@ -72,6 +75,7 @@ namespace AOneStoreBillingSystem
 
         private void Exitbutton_Click(object sender, EventArgs e)
         {
+            isAnyButtonClicked = true;
             this.Close();
             HomePage homePage = new HomePage();
             homePage.Show();
@@ -82,6 +86,14 @@ namespace AOneStoreBillingSystem
             if(e.KeyCode == Keys.Enter)
             {
                 Loginbutton_Click(null, e);
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isAnyButtonClicked && sender != null && string.Equals((sender as Form).Name, "AdminLogin"))
+            {
+                Application.Exit();
             }
         }
     }

@@ -28,3 +28,13 @@ C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.dll
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\CommonClasses.dll.config
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\CommonClasses.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\CommonClasses.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.xml
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.pdb

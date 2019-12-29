@@ -16,10 +16,9 @@ namespace CommonClasses
     {
         public long Id { get; set; }
         public long BillNos { get; set; }
-        public long ProductId { get; set; }
-        public string ProductName { get; set; }
-        public long Quantity { get; set; }
-        public decimal TotalPrice { get; set; }
+        public decimal TotalBillAmount { get; set; }
+        public decimal TotalCostPrice { get; set; }
+        public decimal ProfitAmount { get; set; }
         public string SalesDate { get; set; }
     }
 }

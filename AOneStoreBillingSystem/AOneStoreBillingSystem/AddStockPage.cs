@@ -19,7 +19,9 @@ namespace AOneStoreBillingSystem
         private BackgroundWorker backgroundWorkerForStock;
         private List<ListViewItem> productDetails;
         private string adminLoggedIn;
-        private string selectedProductPrice;
+        private string selectedProductBuyingPrice;
+        private string selectedProductSellingPrice;
+        private string selectedProductMRPPrice;
         private string selectedProductQty;
 
         public AddStockPage(string adminId)
@@ -35,7 +37,8 @@ namespace AOneStoreBillingSystem
             int number;
             decimal productPrice;
             if (!string.IsNullOrWhiteSpace(ProductId_textBox.Text) && !string.IsNullOrWhiteSpace(ProductName_textBox.Text) &&
-                !string.IsNullOrWhiteSpace(Description_textbox.Text) && !string.IsNullOrWhiteSpace(ProductPrice_textBox.Text) && !string.IsNullOrWhiteSpace(Quantity_textBox.Text))
+                !string.IsNullOrWhiteSpace(Description_textbox.Text) && !string.IsNullOrWhiteSpace(BuyingPrice_textBox.Text) && !string.IsNullOrWhiteSpace(SellingPrice_textBox.Text)
+                && !string.IsNullOrWhiteSpace(MRP_textBox.Text) && !string.IsNullOrWhiteSpace(Quantity_textBox.Text))
             {
                 if (!int.TryParse(ProductId_textBox.Text, out number))
                 {
@@ -49,9 +52,17 @@ namespace AOneStoreBillingSystem
                 {
                     MessageBox.Show(Constants.ENTER_VALID_DESCRIPTON_FOR_PRODUCT);
                 }
-                else if (!decimal.TryParse(ProductPrice_textBox.Text, out productPrice))
+                else if (!decimal.TryParse(BuyingPrice_textBox.Text, out productPrice))
                 {
-                    MessageBox.Show(Constants.ENTER_VALID_PRICE_FOR_PRODUCT);
+                    MessageBox.Show(Constants.ENTER_VALID_BUYINGPRICE_FOR_PRODUCT);
+                }
+                else if(!decimal.TryParse(SellingPrice_textBox.Text, out productPrice))
+                {
+                    MessageBox.Show(Constants.ENTER_VALID_SELLINGPRICE_FOR_PRODUCT);
+                }
+                else if(!decimal.TryParse(MRP_textBox.Text, out productPrice))
+                {
+                    MessageBox.Show(Constants.ENTER_VALID_MRPPRICE_FOR_PRODUCT);
                 }
                 else if(!int.TryParse(Quantity_textBox.Text, out number))
                 {
@@ -63,7 +74,7 @@ namespace AOneStoreBillingSystem
 
                     if(!isProductIdUsedAlready)
                     {
-                        isProductDetailsSaved = admin.SaveProductDetails(Convert.ToInt32(ProductId_textBox.Text), ProductName_textBox.Text, Convert.ToDecimal(ProductPrice_textBox.Text), Description_textbox.Text, Convert.ToInt32(Quantity_textBox.Text), adminLoggedIn);
+                        isProductDetailsSaved = admin.SaveProductDetails(Convert.ToInt32(ProductId_textBox.Text), ProductName_textBox.Text, Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), Description_textbox.Text, Convert.ToInt32(Quantity_textBox.Text));
                     }
                     else
                     {
@@ -84,10 +95,12 @@ namespace AOneStoreBillingSystem
                 ListViewItem listView = new ListViewItem((AllProduct_ListView.Items.Count > 0 ? (Convert.ToInt32(AllProduct_ListView.Items[AllProduct_ListView.Items.Count - 1].SubItems[0].Text) + 1).ToString() : "1"));
                 listView.SubItems.Add(ProductId_textBox.Text);
                 listView.SubItems.Add(ProductName_textBox.Text);
-                listView.SubItems.Add(Convert.ToDecimal(ProductPrice_textBox.Text).ToString("#,##0.00"));
+                listView.SubItems.Add(Convert.ToDecimal(BuyingPrice_textBox.Text).ToString("#,##0.00"));
+                listView.SubItems.Add(Convert.ToDecimal(SellingPrice_textBox.Text).ToString("#,##0.00"));
+                listView.SubItems.Add(Convert.ToDecimal(MRP_textBox.Text).ToString("#,##0.00"));
                 listView.SubItems.Add(Quantity_textBox.Text);
                 AllProduct_ListView.Items.Add(listView);
-                ProductName_textBox.Text = ProductId_textBox.Text = Description_textbox.Text = ProductPrice_textBox.Text = Quantity_textBox.Text = string.Empty;
+                ProductName_textBox.Text = ProductId_textBox.Text = Description_textbox.Text = BuyingPrice_textBox.Text = SellingPrice_textBox.Text = MRP_textBox.Text = Quantity_textBox.Text = string.Empty;
             }
         }
 
@@ -111,7 +124,9 @@ namespace AOneStoreBillingSystem
                     ListViewItem listView = new ListViewItem((i + 1).ToString());
                     listView.SubItems.Add(allStockDetails[i].ProductId.ToString());
                     listView.SubItems.Add(allStockDetails[i].ProductName);
-                    listView.SubItems.Add(allStockDetails[i].Price.ToString());
+                    listView.SubItems.Add(allStockDetails[i].BuyingPrice.ToString());
+                    listView.SubItems.Add(allStockDetails[i].SellingPrice.ToString());
+                    listView.SubItems.Add(allStockDetails[i].MRP.ToString());
                     listView.SubItems.Add(allStockDetails[i].QuantityAvailable.ToString());
                     productDetails.Add(listView);
                 }
@@ -159,16 +174,19 @@ namespace AOneStoreBillingSystem
             StockDetail selectedProductDetails = (StockDetail)e.Result;
             ProductId_textBox.Text = selectedProductDetails.ProductId.ToString();
             ProductName_textBox.Text = selectedProductDetails.ProductName;
-            selectedProductPrice = ProductPrice_textBox.Text = selectedProductDetails.Price.ToString();
+            selectedProductBuyingPrice = BuyingPrice_textBox.Text = selectedProductDetails.BuyingPrice.ToString();
+            selectedProductSellingPrice = SellingPrice_textBox.Text = selectedProductDetails.SellingPrice.ToString();
+            selectedProductMRPPrice = MRP_textBox.Text = selectedProductDetails.MRP.ToString();
             Description_textbox.Text = selectedProductDetails.ProductDescription;
-            selectedProductQty = Quantity_textBox.Text = selectedProductDetails.QuantityAvailable.ToString();
+            selectedProductQty = SellingPrice_textBox.Text = selectedProductDetails.QuantityAvailable.ToString();
         }
 
         private void UpdateProduct_button_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(ProductPrice_textBox.Text) && !string.IsNullOrWhiteSpace(Quantity_textBox.Text))
+            if (!string.IsNullOrWhiteSpace(BuyingPrice_textBox.Text) && !string.IsNullOrWhiteSpace(SellingPrice_textBox.Text))
             {
-                if (!selectedProductQty.Equals(Quantity_textBox.Text) || !selectedProductPrice.Equals(ProductPrice_textBox.Text))
+                if (!selectedProductQty.Equals(SellingPrice_textBox.Text) || !selectedProductBuyingPrice.Equals(BuyingPrice_textBox.Text)
+                    || !selectedProductSellingPrice.Equals(SellingPrice_textBox.Text) || !selectedProductMRPPrice.Equals(MRP_textBox.Text))
                 {
                     BackgroundWorker backgroundWorker = new BackgroundWorker();
                     backgroundWorker.DoWork += UpdateProductDetails;
@@ -188,7 +206,7 @@ namespace AOneStoreBillingSystem
 
         private void UpdateProductDetails(object sender, DoWorkEventArgs e)
         {
-            e.Result = admin.UpdateProductDetails(int.Parse(ProductId_textBox.Text), Convert.ToDecimal(ProductPrice_textBox.Text), int.Parse(Quantity_textBox.Text));
+            e.Result = admin.UpdateProductDetails(int.Parse(ProductId_textBox.Text), Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), int.Parse(Quantity_textBox.Text));
         }
 
         private void UpdateProcductDetailsCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -256,9 +274,9 @@ namespace AOneStoreBillingSystem
             Description_textbox.ReadOnly = false;
             ProductId_textBox.Text = string.Empty;
             ProductName_textBox.Text = string.Empty;
-            ProductPrice_textBox.Text = string.Empty;
+            BuyingPrice_textBox.Text = string.Empty;
             Description_textbox.Text = string.Empty;
-            Quantity_textBox.Text = string.Empty;
+            SellingPrice_textBox.Text = string.Empty;
         }
     }
 }

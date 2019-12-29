@@ -31,12 +31,15 @@ namespace CommonClasses
         public const string ENTER_VALID_PRODUCT_ID = "Only Number Accepted For Product ID";
         public const string ENTER_VALID_PRODUCT_NAME = "Give Proper Name For Product";
         public const string ENTER_VALID_DESCRIPTON_FOR_PRODUCT = "Give Proper Description For Product";
-        public const string ENTER_VALID_PRICE_FOR_PRODUCT = "Enter a Valid Price For Product";
+        public const string ENTER_VALID_BUYINGPRICE_FOR_PRODUCT = "Enter a Valid Buying Price For Product";
+        public const string ENTER_VALID_SELLINGPRICE_FOR_PRODUCT = "Enter a Valid Selling Price for Product";
+        public const string ENTER_VALID_MRPPRICE_FOR_PRODUCT = "Enter a Valid MRP Price for Product";
         public const string PRODUCT_DETAILS_UPDATED = "Product Details Updated";
         public const string PRODUCT_DELETED_CONFORMATION_MESSAGE = "Product Deleted";
         public const string PRODUCT_ID_AVAILABLE_MESSAGE = "Product Id Already Used For Another Product";
         public const string SELECT_ANY_PRODUCT_ERROR_MESSAGE = "Select Any Product To Add For Bill";
         public const string ENTER_VALID_QUANTITY_ERROR_MESSAGE = "Enter Proper Quantity To Purchase";
         public const string ENTER_VALID_DISCOUNT_ERROR_MESSAGE = "Enter Valid Discount In Numbers";
+        public const int CP_NOCLOSE_BUTTON = 0x200;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using CommonClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,6 +68,27 @@ namespace AOneStoreBillingSystem
                 {
                     AdminHomePage_MenuStrip.Items[i].Enabled = true;
                 }
+            }
+        }
+
+        private void transactionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseOpenedChildForm();
+            EnableDisbaledMenuStripItem();
+            transactionDetailsToolStripMenuItem.Enabled = false;
+            TransactionDetails transactionDetails = new TransactionDetails();
+            transactionDetails.MdiParent = this;
+            transactionDetails.StartPosition = FormStartPosition.CenterScreen;
+            transactionDetails.Show();
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | Constants.CP_NOCLOSE_BUTTON;
+                return myCp;
             }
         }
     }

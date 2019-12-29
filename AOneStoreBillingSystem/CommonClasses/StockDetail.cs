@@ -14,12 +14,13 @@ namespace CommonClasses
     
     public partial class StockDetail
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public long ProductId { get; set; }
         public string ProductName { get; set; }
         public long QuantityAvailable { get; set; }
-        public decimal Price { get; set; }
+        public decimal BuyingPrice { get; set; }
+        public decimal MRP { get; set; }
+        public decimal SellingPrice { get; set; }
         public string ProductDescription { get; set; }
-        public string ProductAddedBy { get; set; }
     }
 }

@@ -20,6 +20,10 @@ namespace AOneStoreBillingSystem
         private List<StockDetail> availableProducts;
         private BackgroundWorker backgroundWorker;
         private PrintDocument pdoc = null;
+        private decimal totalCostPrice;
+        private decimal totalProfit;
+        private StockDetail selectedProductForBill;
+
         public BillPage()
         {
             InitializeComponent();
@@ -41,9 +45,9 @@ namespace AOneStoreBillingSystem
 
         private void Product_Search_Textbox_TextChanged(object sender, EventArgs e)
         {
-            if(ProductId_textBox.Text != string.Empty || Quantity_textBox.Text != string.Empty || Discount_textBox.Text != string.Empty)
+            if(ProductId_textBox.Text != string.Empty || Quantity_textBox.Text != string.Empty)
             {
-                ProductId_textBox.Text = ProductName_textBox.Text = Price_textBox.Text = Quantity_textBox.Text = Discount_textBox.Text = string.Empty;
+                ProductId_textBox.Text = ProductName_textBox.Text = Price_textBox.Text = Quantity_textBox.Text = MRP_textBox.Text = string.Empty;
                 DisableSelectedContentInGridview();
             }
 
@@ -54,7 +58,7 @@ namespace AOneStoreBillingSystem
                 ProductName_textBox.Text = string.Empty;
                 Price_textBox.Text = string.Empty;
                 Quantity_textBox.Text = string.Empty;
-                Discount_textBox.Text = string.Empty;
+                MRP_textBox.Text = string.Empty;
                 HideResults();
                 return;
             }
@@ -86,16 +90,11 @@ namespace AOneStoreBillingSystem
                     Error_Message_Label.Text = Constants.ENTER_VALID_QUANTITY_ERROR_MESSAGE;
                     HideWarningMessage();
                 }
-                else if (Discount_textBox.Text != string.Empty && !int.TryParse(Discount_textBox.Text, out validationCheck))
-                {
-                    Error_Message_Label.Text = Constants.ENTER_VALID_DISCOUNT_ERROR_MESSAGE;
-                    HideWarningMessage();
-                }
                 else
                 {
                     BilledProducts_GridView.SelectedRows[0].Cells[3].Value = Quantity_textBox.Text;
-                    BilledProducts_GridView.SelectedRows[0].Cells[5].Value = Discount_textBox.Text;
-                    BilledProducts_GridView.SelectedRows[0].Cells[6].Value = Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[4].Value) * Convert.ToInt32(Quantity_textBox.Text) - ((Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[4].Value) * Convert.ToInt32(Quantity_textBox.Text) * Convert.ToInt32(Discount_textBox.Text)) / 100);
+                    BilledProducts_GridView.SelectedRows[0].Cells[5].Value = MRP_textBox.Text;
+                    BilledProducts_GridView.SelectedRows[0].Cells[6].Value = Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[4].Value) * Convert.ToInt32(Quantity_textBox.Text) - ((Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[4].Value) * Convert.ToInt32(Quantity_textBox.Text)) / 100);
                     BilledProducts_GridView_RowsRemoved();
                     DisableSelectedContentInGridview();
                     AssignEmptyToAvailableTextboxes();
@@ -113,15 +112,13 @@ namespace AOneStoreBillingSystem
                     Error_Message_Label.Text = Constants.ENTER_VALID_QUANTITY_ERROR_MESSAGE;
                     HideWarningMessage();
                 }
-                else if (Discount_textBox.Text != string.Empty && !int.TryParse(Discount_textBox.Text, out validationCheck))
-                {
-                    Error_Message_Label.Text = Constants.ENTER_VALID_DISCOUNT_ERROR_MESSAGE;;
-                    HideWarningMessage();
-                }
                 else
                 {
-                    this.BilledProducts_GridView.Rows.Add((BilledProducts_GridView.Rows.Count + 1).ToString(), ProductId_textBox.Text, ProductName_textBox.Text, Quantity_textBox.Text, Price_textBox.Text, Discount_textBox.Text != string.Empty ? Discount_textBox.Text : "0", Discount_textBox.Text == string.Empty ? int.Parse(Quantity_textBox.Text) * decimal.Parse(Price_textBox.Text) : int.Parse(Quantity_textBox.Text) * decimal.Parse(Price_textBox.Text) - (int.Parse(Quantity_textBox.Text) * decimal.Parse(Price_textBox.Text) * int.Parse(Discount_textBox.Text)) / 100);
+                    this.BilledProducts_GridView.Rows.Add((BilledProducts_GridView.Rows.Count + 1).ToString(), ProductId_textBox.Text, ProductName_textBox.Text, Quantity_textBox.Text, Price_textBox.Text, MRP_textBox.Text, int.Parse(Quantity_textBox.Text) * decimal.Parse(Price_textBox.Text));
+                    totalCostPrice += Convert.ToDecimal(Quantity_textBox.Text) * selectedProductForBill.BuyingPrice;
+                    totalProfit += (Convert.ToDecimal(Quantity_textBox.Text) * selectedProductForBill.SellingPrice) - (Convert.ToDecimal(Quantity_textBox.Text) * selectedProductForBill.BuyingPrice);
                     AssignEmptyToAvailableTextboxes();
+
                     if (TotalBill_Amount_textBox.Text != string.Empty)
                     {
                         TotalBill_Amount_textBox.Text = (Convert.ToDecimal(TotalBill_Amount_textBox.Text) + Convert.ToDecimal(BilledProducts_GridView.Rows[BilledProducts_GridView.Rows.Count - 1].Cells[6].Value)).ToString("N", new CultureInfo("en-IN"));
@@ -156,12 +153,14 @@ namespace AOneStoreBillingSystem
         {
             if (BilledProducts_GridView.Rows.Count > 0)
             {
-                Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = Discount_textBox.Enabled = false;
-                Error_Message_Label.Text = "PRINTING CURRENT BILL";
-                PrintReceipt();
-                cashier.QuantityReductionForSelectedProduct(Bill_Number_textBox.Text, BilledProducts_GridView);
-                Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = Discount_textBox.Enabled = true;
+                Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = false;
+                Error_Message_Label.Text = "UPDATING CURRENT BILL";
+                //PrintReceipt();
+                cashier.QuantityReductionForSelectedProduct(Bill_Number_textBox.Text, Convert.ToDecimal(TotalBill_Amount_textBox.Text), totalCostPrice, totalProfit, BilledProducts_GridView);
+                Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = true;
                 Error_Message_Label.Text = TotalBill_Amount_textBox.Text = string.Empty;
+                totalCostPrice = totalProfit = 0;
+                selectedProductForBill = null;
                 BilledProducts_GridView.Rows.Clear();
                 BillDate_textBox.Text = DateTime.Today.ToString("dd-MM-yyyy");
                 backgroundWorker.DoWork += GetCurrentBillNumber;
@@ -219,7 +218,11 @@ namespace AOneStoreBillingSystem
         {
             if(BilledProducts_GridView.SelectedRows.Count > 0)
             {
-                BilledProducts_GridView.Rows.Remove(BilledProducts_GridView.SelectedRows[0]);
+                double selectedProductId = Convert.ToDouble(BilledProducts_GridView.SelectedRows[0].Cells[1].Value);
+                StockDetail selectedProduct = cashier.GetAllProducts().Single(obj => obj.ProductId == selectedProductId);
+                totalCostPrice -= Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[3].Value) * selectedProduct.BuyingPrice;
+                totalProfit -= (Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[3].Value) * selectedProduct.SellingPrice) - (Convert.ToDecimal(BilledProducts_GridView.SelectedRows[0].Cells[3].Value) * selectedProduct.BuyingPrice);
+                BilledProducts_GridView.Rows.Remove(BilledProducts_GridView.SelectedRows[0]);              
                 BilledProducts_GridView_RowsRemoved();
                 DisableSelectedContentInGridview();
                 AssignEmptyToAvailableTextboxes();
@@ -238,7 +241,7 @@ namespace AOneStoreBillingSystem
             ProductName_textBox.Text = selectedBilledProduct[2].Value.ToString();
             Quantity_textBox.Text = selectedBilledProduct[3].Value.ToString();
             Price_textBox.Text = selectedBilledProduct[4].Value.ToString();
-            Discount_textBox.Text = selectedBilledProduct[5].Value.ToString();
+            MRP_textBox.Text = selectedBilledProduct[5].Value.ToString();
         }
 
         private void BilledProducts_GridView_RowsRemoved()
@@ -296,8 +299,8 @@ namespace AOneStoreBillingSystem
             ProductId_textBox.Text = string.Empty;
             ProductName_textBox.Text = string.Empty;
             Price_textBox.Text = string.Empty;
+            MRP_textBox.Text = string.Empty;
             Quantity_textBox.Text = string.Empty;
-            Discount_textBox.Text = string.Empty;
             Error_Message_Label.Text = string.Empty;
         }
 
@@ -357,7 +360,7 @@ namespace AOneStoreBillingSystem
             if (Product_Search_ListBox.SelectedIndex != -1)
             {
                 Product_Search_Textbox.Text = ProductName_textBox.Text = Product_Search_ListBox.Items[Product_Search_ListBox.SelectedIndex].ToString();
-                availableProducts.Where(obj => obj.ProductName.Equals(Product_Search_Textbox.Text)).ToList().ForEach(obj => { ProductId_textBox.Text = obj.ProductId.ToString(); Price_textBox.Text = obj.Price.ToString("#,##0.00"); });
+                availableProducts.Where(obj => obj.ProductName.Equals(Product_Search_Textbox.Text)).ToList().ForEach(obj => { selectedProductForBill = obj; ProductId_textBox.Text = obj.ProductId.ToString(); Price_textBox.Text = obj.SellingPrice.ToString("#,##0.00"); MRP_textBox.Text = obj.MRP.ToString("#,##0.00"); });
                 HideResults();
             }
         }

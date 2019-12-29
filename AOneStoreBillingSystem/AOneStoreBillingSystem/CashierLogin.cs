@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using CommonClasses;
 
 namespace AOneStoreBillingSystem
 {
@@ -15,6 +16,7 @@ namespace AOneStoreBillingSystem
     {
         private Cashier cashier;
         private BackgroundWorker backgroundWorker;
+        private bool isAnyButtonClicked = false;
 
         public CashierLogin()
         {
@@ -35,13 +37,14 @@ namespace AOneStoreBillingSystem
         private void Loginbutton_Click(object sender, EventArgs e)
         {
             int cashierId;
+            isAnyButtonClicked = true;
             Loginbutton.Enabled = false;
             backgroundWorker = new BackgroundWorker();
             backgroundWorker.DoWork += AuthenticateAdmin;
             backgroundWorker.RunWorkerCompleted += ShowAdminHomePage;
             if (!string.IsNullOrWhiteSpace(cashierUserId_textBox.Text) && !string.IsNullOrWhiteSpace(cashierPassword_textBox.Text))
             {
-                if(int.TryParse(cashierUserId_textBox.Text, out cashierId))
+                if (int.TryParse(cashierUserId_textBox.Text, out cashierId))
                 {
                     backgroundWorker.RunWorkerAsync();
                 }
@@ -50,7 +53,7 @@ namespace AOneStoreBillingSystem
                     MessageBox.Show("Cashier ID Not In valid Format");
                     Loginbutton.Enabled = true;
                 }
-                
+
             }
             else
             {
@@ -82,6 +85,7 @@ namespace AOneStoreBillingSystem
 
         private void Exitbutton_Click(object sender, EventArgs e)
         {
+            isAnyButtonClicked = true;
             this.Close();
             HomePage homePage = new HomePage();
             homePage.Show();
@@ -89,9 +93,17 @@ namespace AOneStoreBillingSystem
 
         private void CashierLogin_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 Loginbutton_Click(null, e);
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isAnyButtonClicked && sender != null && string.Equals((sender as Form).Name, "CashierLogin"))
+            {
+                Application.Exit();
             }
         }
     }

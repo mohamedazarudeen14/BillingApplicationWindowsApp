@@ -14,11 +14,11 @@ namespace BusinessLayer
 
         public void CheckDbConnection()
         {
-            Task.Run(() =>accessDB.CheckDbConnection());
+            Task.Run(() => accessDB.CheckDbConnection());
         }
 
-        public bool IsAdminAuthenticated( string userId, string password)
-        {           
+        public bool IsAdminAuthenticated(string userId, string password)
+        {
             EncryptionDecryption passwordEncryptionDecryption = new EncryptionDecryption();
             string EncryptedPassword = passwordEncryptionDecryption.Encryptdata(password);
             List<AdminDetail> allAdmins = accessDB.GetAllAdmin();
@@ -33,7 +33,7 @@ namespace BusinessLayer
             return false;
         }
 
-        public bool SaveCashierDetails(string name,int id,string password,string mobileNumber)
+        public bool SaveCashierDetails(string name, int id, string password, string mobileNumber)
         {
             EncryptionDecryption passwordEncrypt = new EncryptionDecryption();
             string decryptedPassword = passwordEncrypt.Encryptdata(password);
@@ -46,7 +46,7 @@ namespace BusinessLayer
                 MobileNumber = mobileNumber,
                 IsActive = false,
             };
-           return accessDB.SaveCashier(newCashier);
+            return accessDB.SaveCashier(newCashier);
         }
 
         public List<CashierDetail> GetAllCashierDetails()
@@ -80,18 +80,18 @@ namespace BusinessLayer
             Task.Run(() => accessDB.AddLastLoggedOutTimeForLoggedAdmin(adminId));
         }
 
-        public bool SaveProductDetails( int id, string name, decimal price, string description,int quantity,string adminId)
+        public bool SaveProductDetails(int id, string name, decimal buyingPrice, decimal sellingPrice, decimal mrp, string description, int quantity)
         {
-         StockDetail newStock = new StockDetail
-         {
-      
-         ProductId = id,
-         ProductName = name,
-         QuantityAvailable = quantity,
-         Price = price,
-         ProductAddedBy = adminId,
-         ProductDescription = description
-        };
+            StockDetail newStock = new StockDetail
+            {
+                ProductId = id,
+                ProductName = name,
+                QuantityAvailable = quantity,
+                BuyingPrice = buyingPrice,
+                SellingPrice = sellingPrice,
+                MRP = mrp,
+                ProductDescription = description
+            };
             return accessDB.SaveProduct(newStock);
         }
 
@@ -107,9 +107,9 @@ namespace BusinessLayer
             return allProuctdetails.SingleOrDefault(obj => obj.ProductId.Equals(selectedProductId));
         }
 
-        public bool UpdateProductDetails(int productId, decimal productPrice, int quantityAvailable)
+        public bool UpdateProductDetails(int productId, decimal productBuyingPrice, decimal productSellingPrice, decimal productMRP, int quantityAvailable)
         {
-            return accessDB.UpdateProductDetails(productId, productPrice, quantityAvailable);
+            return accessDB.UpdateProductDetails(productId, productBuyingPrice, productSellingPrice, productMRP, quantityAvailable);
         }
 
         public bool IsProductIdAvailable(int productId)

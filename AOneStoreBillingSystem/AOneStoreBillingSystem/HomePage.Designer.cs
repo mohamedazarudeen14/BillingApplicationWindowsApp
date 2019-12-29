@@ -60,8 +60,10 @@
             this.Controls.Add(this.Cashier_Btn);
             this.Controls.Add(this.Admin_Btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "HomePage";
             this.Text = "HomePage";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.ResumeLayout(false);
 

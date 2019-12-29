@@ -115,8 +115,10 @@
             this.Controls.Add(this.adminUserId_textBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "AdminLogin";
             this.Text = "AdminLogin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AdminLogin_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();

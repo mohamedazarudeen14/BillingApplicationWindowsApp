@@ -40,3 +40,17 @@ C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\CommonClasses.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\CommonClasses.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.pdb

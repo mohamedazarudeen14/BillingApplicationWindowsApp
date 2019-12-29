@@ -60,7 +60,6 @@
             this.Product_Search_Textbox = new System.Windows.Forms.TextBox();
             this.Product_Search_ListBox = new System.Windows.Forms.ListBox();
             this.Search_label = new System.Windows.Forms.Label();
-            this.Ok_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BillTitile_label
@@ -351,17 +350,6 @@
             this.Search_label.Size = new System.Drawing.Size(59, 17);
             this.Search_label.TabIndex = 51;
             this.Search_label.Text = "Search";
-            // 
-            // Ok_button
-            // 
-            this.Ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ok_button.Location = new System.Drawing.Point(739, 50);
-            this.Ok_button.Name = "Ok_button";
-            this.Ok_button.Size = new System.Drawing.Size(70, 26);
-            this.Ok_button.TabIndex = 52;
-            this.Ok_button.Text = "OK";
-            this.Ok_button.UseVisualStyleBackColor = true;
-            this.Ok_button.Click += new System.EventHandler(this.Ok_button_Click);
             // 
             // BillingPage
             // 

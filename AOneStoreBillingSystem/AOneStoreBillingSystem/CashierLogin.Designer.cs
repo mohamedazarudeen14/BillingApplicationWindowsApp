@@ -115,8 +115,10 @@
             this.Controls.Add(this.cashierUserId_textBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "CashierLogin";
             this.Text = "CashierLogin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CashierLogin_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();

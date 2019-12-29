@@ -43,7 +43,7 @@
             this.LogOut_Cashier_MenuStrip});
             this.Cashier_HomePage_MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.Cashier_HomePage_MenuStrip.Name = "Cashier_HomePage_MenuStrip";
-            this.Cashier_HomePage_MenuStrip.Size = new System.Drawing.Size(1370, 29);
+            this.Cashier_HomePage_MenuStrip.Size = new System.Drawing.Size(1350, 29);
             this.Cashier_HomePage_MenuStrip.TabIndex = 7;
             this.Cashier_HomePage_MenuStrip.Text = "menuStrip1";
             // 
@@ -74,9 +74,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.ControlBox = false;
             this.Controls.Add(this.Cashier_HomePage_MenuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
+            this.MinimizeBox = false;
             this.Name = "CashierHomePage";
             this.Text = "CashierHomePage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

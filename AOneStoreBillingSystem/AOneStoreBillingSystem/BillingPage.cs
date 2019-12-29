@@ -70,20 +70,20 @@ namespace AOneStoreBillingSystem
             Product_Search_ListBox.Visible = false;
         }
 
-        private void Ok_button_Click(object sender, EventArgs e)
-        {
+        //private void Ok_button_Click(object sender, EventArgs e)
+        //{
 
-            foreach (StockDetail searchedProduct in availableProducts)
-            {
-                if (searchedProduct.ProductName.ToLower().Equals(Product_Search_Textbox.Text.ToLower()))
-                {
-                    ProductId_textBox.Text = searchedProduct.ProductId.ToString();
-                    ProductName_textBox.Text = searchedProduct.ProductName.ToString();
-                    Price_textBox.Text = searchedProduct.Price.ToString("#,##0.00");
-                }
-            }
-            Product_Search_Textbox.Text = string.Empty;
-        }
+        //    foreach (StockDetail searchedProduct in availableProducts)
+        //    {
+        //        if (searchedProduct.ProductName.ToLower().Equals(Product_Search_Textbox.Text.ToLower()))
+        //        {
+        //            ProductId_textBox.Text = searchedProduct.ProductId.ToString();
+        //            ProductName_textBox.Text = searchedProduct.ProductName.ToString();
+        //            Price_textBox.Text = searchedProduct.Price.ToString("#,##0.00");
+        //        }
+        //    }
+        //    Product_Search_Textbox.Text = string.Empty;
+        //}
 
         private void Add_button_Click(object sender, EventArgs e)
         {

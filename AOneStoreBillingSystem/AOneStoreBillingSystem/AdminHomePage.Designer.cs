@@ -47,7 +47,7 @@
             this.logoutToolStripMenuItem});
             this.AdminHomePage_MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.AdminHomePage_MenuStrip.Name = "AdminHomePage_MenuStrip";
-            this.AdminHomePage_MenuStrip.Size = new System.Drawing.Size(1370, 29);
+            this.AdminHomePage_MenuStrip.Size = new System.Drawing.Size(1354, 29);
             this.AdminHomePage_MenuStrip.TabIndex = 6;
             this.AdminHomePage_MenuStrip.Text = "menuStrip1";
             // 
@@ -65,6 +65,7 @@
             this.transactionDetailsToolStripMenuItem.Name = "transactionDetailsToolStripMenuItem";
             this.transactionDetailsToolStripMenuItem.Size = new System.Drawing.Size(152, 25);
             this.transactionDetailsToolStripMenuItem.Text = "Transaction Details";
+            this.transactionDetailsToolStripMenuItem.Click += new System.EventHandler(this.transactionDetailsToolStripMenuItem_Click);
             // 
             // StockDetailsToolStripMenuItem
             // 
@@ -93,11 +94,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.ControlBox = false;
             this.Controls.Add(this.AdminHomePage_MenuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.AdminHomePage_MenuStrip;
+            this.MinimizeBox = false;
             this.Name = "AdminHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminHomePage";

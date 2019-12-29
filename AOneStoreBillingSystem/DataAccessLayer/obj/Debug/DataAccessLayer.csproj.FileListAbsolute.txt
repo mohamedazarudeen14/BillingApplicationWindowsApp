@@ -34,3 +34,15 @@ C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\msarbudeen\Documents\Visual Studio 2015\Projects\AOneStoreBillingSystem\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\CommonClasses.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\CommonClasses.pdb
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

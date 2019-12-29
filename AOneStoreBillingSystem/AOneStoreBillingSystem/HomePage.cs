@@ -14,6 +14,8 @@ namespace AOneStoreBillingSystem
 {
     public partial class HomePage : Form
     {
+        private bool isAnyButtonClicked = false;
+
         public HomePage()
         {
             InitializeComponent();
@@ -21,21 +23,31 @@ namespace AOneStoreBillingSystem
 
         private void HomePage_Load(object sender, EventArgs e)
         {
-             new Admin().CheckDbConnection();
+            new Admin().CheckDbConnection();
         }
 
         private void Admin_Btn_Click(object sender, EventArgs e)
         {
-            Hide();
+            isAnyButtonClicked = true;
+            this.Hide();
             AdminLogin adminPage = new AdminLogin();
-            adminPage.Show();
+            adminPage.Show();           
         }
 
         private void Cashier_Btn_Click(object sender, EventArgs e)
         {
-            Hide();
+            isAnyButtonClicked = true;
+            this.Hide();
             CashierLogin cashierLoginPage = new CashierLogin();
-            cashierLoginPage.Show();
+            cashierLoginPage.Show();           
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isAnyButtonClicked && sender != null && string.Equals((sender as Form).Name, "HomePage"))
+            {
+                Application.Exit();
+            }
         }
     }
 }

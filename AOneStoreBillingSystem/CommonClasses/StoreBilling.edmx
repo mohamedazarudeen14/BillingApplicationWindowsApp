@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Store_BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Store_BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -35,23 +35,23 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BillNos" Type="bigint" Nullable="false" />
-          <Property Name="ProductId" Type="bigint" Nullable="false" />
-          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Quantity" Type="bigint" Nullable="false" />
-          <Property Name="TotalPrice" Type="money" Nullable="false" />
+          <Property Name="TotalBillAmount" Type="money" Nullable="false" />
+          <Property Name="TotalCostPrice" Type="money" Nullable="false" />
+          <Property Name="ProfitAmount" Type="money" Nullable="false" />
           <Property Name="SalesDate" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="StockDetails">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="bigint" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="QuantityAvailable" Type="bigint" Nullable="false" />
-          <Property Name="Price" Type="money" Nullable="false" />
-          <Property Name="ProductDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ProductAddedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BuyingPrice" Type="money" Nullable="false" />
+          <Property Name="MRP" Type="money" Nullable="false" />
+          <Property Name="SellingPrice" Type="money" Nullable="false" />
+          <Property Name="ProductDescription" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="Store_BillingModelStoreContainer">
           <EntitySet Name="AdminDetails" EntityType="Self.AdminDetails" Schema="dbo" store:Type="Tables" />
@@ -59,19 +59,24 @@
           <EntitySet Name="SalesDetails" EntityType="Self.SalesDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockDetails" EntityType="Self.StockDetails" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Store_BillingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Store_BillingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminDetails" EntityType="Store_BillingModel.AdminDetail" />
+          <EntitySet Name="CashierDetails" EntityType="Store_BillingModel.CashierDetail" />
+          <EntitySet Name="SalesDetails" EntityType="Store_BillingModel.SalesDetail" />
+          <EntitySet Name="StockDetails" EntityType="Store_BillingModel.StockDetail" />
+        </EntityContainer>
         <EntityType Name="AdminDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Last_LoggedIn_Time" Type="DateTime" Precision="3" />
           <Property Name="Last_LoggedOut_Time" Type="DateTime" Precision="3" />
         </EntityType>
@@ -80,10 +85,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CashierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CashierName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CashierID" Type="Int32" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="Last_LoggedIn_Time" Type="DateTime" Precision="3" />
           <Property Name="Last_LoggedOut_Time" Type="DateTime" Precision="3" />
@@ -94,85 +99,79 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BillNos" Type="Int64" Nullable="false" />
-          <Property Name="ProductId" Type="Int64" Nullable="false" />
-          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Quantity" Type="Int64" Nullable="false" />
-          <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="SalesDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalBillAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TotalCostPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ProfitAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="SalesDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="StockDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int64" Nullable="false" />
-          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="QuantityAvailable" Type="Int64" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="ProductDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProductAddedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BuyingPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="MRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="SellingPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ProductDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="Store_BillingEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdminDetails" EntityType="Self.AdminDetail" />
-          <EntitySet Name="CashierDetails" EntityType="Self.CashierDetail" />
-          <EntitySet Name="SalesDetails" EntityType="Self.SalesDetail" />
-          <EntitySet Name="StockDetails" EntityType="Self.StockDetail" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Store_BillingModelStoreContainer" CdmEntityContainer="Store_BillingEntities1">
+        <EntityContainerMapping StorageEntityContainer="Store_BillingModelStoreContainer" CdmEntityContainer="Store_BillingEntities">
           <EntitySetMapping Name="AdminDetails">
             <EntityTypeMapping TypeName="Store_BillingModel.AdminDetail">
               <MappingFragment StoreEntitySet="AdminDetails">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Last_LoggedIn_Time" ColumnName="Last LoggedIn Time" />
                 <ScalarProperty Name="Last_LoggedOut_Time" ColumnName="Last LoggedOut Time" />
+                <ScalarProperty Name="Last_LoggedIn_Time" ColumnName="Last LoggedIn Time" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CashierDetails">
             <EntityTypeMapping TypeName="Store_BillingModel.CashierDetail">
               <MappingFragment StoreEntitySet="CashierDetails">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CashierName" ColumnName="CashierName" />
-                <ScalarProperty Name="CashierID" ColumnName="CashierID" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Last_LoggedIn_Time" ColumnName="Last LoggedIn Time" />
                 <ScalarProperty Name="Last_LoggedOut_Time" ColumnName="Last LoggedOut Time" />
+                <ScalarProperty Name="Last_LoggedIn_Time" ColumnName="Last LoggedIn Time" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CashierID" ColumnName="CashierID" />
+                <ScalarProperty Name="CashierName" ColumnName="CashierName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SalesDetails">
             <EntityTypeMapping TypeName="Store_BillingModel.SalesDetail">
               <MappingFragment StoreEntitySet="SalesDetails">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BillNos" ColumnName="BillNos" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="SalesDate" ColumnName="SalesDate" />
+                <ScalarProperty Name="ProfitAmount" ColumnName="ProfitAmount" />
+                <ScalarProperty Name="TotalCostPrice" ColumnName="TotalCostPrice" />
+                <ScalarProperty Name="TotalBillAmount" ColumnName="TotalBillAmount" />
+                <ScalarProperty Name="BillNos" ColumnName="BillNos" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockDetails">
             <EntityTypeMapping TypeName="Store_BillingModel.StockDetail">
               <MappingFragment StoreEntitySet="StockDetails">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="QuantityAvailable" ColumnName="QuantityAvailable" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
-                <ScalarProperty Name="ProductAddedBy" ColumnName="ProductAddedBy" />
+                <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="BuyingPrice" ColumnName="BuyingPrice" />
+                <ScalarProperty Name="QuantityAvailable" ColumnName="QuantityAvailable" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

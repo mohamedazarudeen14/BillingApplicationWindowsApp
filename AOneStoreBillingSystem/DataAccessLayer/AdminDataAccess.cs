@@ -13,7 +13,7 @@ namespace DataAccessLayer
     {
         public void CheckDbConnection()
         {
-            using (Store_BillingEntities1 billingEntities = new Store_BillingEntities1())
+            using (Store_BillingEntities billingEntities = new Store_BillingEntities())
             {
                 billingEntities.AdminDetails.ToList();
             }
@@ -21,7 +21,7 @@ namespace DataAccessLayer
 
         public void SaveAdmin(AdminDetail newAdmin)
         {
-            using (Store_BillingEntities1 addAdmin = new Store_BillingEntities1())
+            using (Store_BillingEntities addAdmin = new Store_BillingEntities())
             {
                 addAdmin.AdminDetails.Add(newAdmin);
                 addAdmin.SaveChanges();
@@ -30,7 +30,7 @@ namespace DataAccessLayer
 
         public List<AdminDetail> GetAllAdmin()
         {
-            using (Store_BillingEntities1 allAdmin = new Store_BillingEntities1())
+            using (Store_BillingEntities allAdmin = new Store_BillingEntities())
             {
                 return allAdmin.AdminDetails.ToList();
             }
@@ -38,7 +38,7 @@ namespace DataAccessLayer
         }
         public bool SaveCashier(CashierDetail newCashier)
         {
-            using (Store_BillingEntities1 saveCashierDetails = new Store_BillingEntities1())
+            using (Store_BillingEntities saveCashierDetails = new Store_BillingEntities())
             {
                 saveCashierDetails.CashierDetails.Add(newCashier);
                 saveCashierDetails.SaveChanges();
@@ -47,7 +47,7 @@ namespace DataAccessLayer
         }
         public bool SaveProduct(StockDetail newStock)
         {
-            using (Store_BillingEntities1 saveProductDetails = new Store_BillingEntities1())
+            using (Store_BillingEntities saveProductDetails = new Store_BillingEntities())
             {
                 saveProductDetails.StockDetails.Add(newStock);
                 saveProductDetails.SaveChanges();
@@ -56,21 +56,21 @@ namespace DataAccessLayer
         }
         public List<CashierDetail> GetAllCashier()
         {
-            using (Store_BillingEntities1 getAllCashier = new Store_BillingEntities1())
+            using (Store_BillingEntities getAllCashier = new Store_BillingEntities())
             {
                 return getAllCashier.CashierDetails.ToList();
             }               
         }
         public List<StockDetail> GetAllStock()
         {
-            using (Store_BillingEntities1 getAllStock = new Store_BillingEntities1())
+            using (Store_BillingEntities getAllStock = new Store_BillingEntities())
             {
                 return getAllStock.StockDetails.ToList();
             }
         }
         public void AddLastoggedInTimeForLoggedAdmin(string loggedAdminUserId)
         {
-            using (Store_BillingEntities1 allAdmin = new Store_BillingEntities1())
+            using (Store_BillingEntities allAdmin = new Store_BillingEntities())
             {
                 allAdmin.AdminDetails.Where(obj => obj.UserId.Equals(loggedAdminUserId)).ToList().ForEach(obj => obj.Last_LoggedIn_Time = DateTime.Now);
                 allAdmin.SaveChanges();
@@ -79,7 +79,7 @@ namespace DataAccessLayer
 
         public void AddLastLoggedOutTimeForLoggedAdmin(string loggedInAdminUserId)
         {
-            using (Store_BillingEntities1 allAdmin = new Store_BillingEntities1())
+            using (Store_BillingEntities allAdmin = new Store_BillingEntities())
             {
                 allAdmin.AdminDetails.Where(obj => obj.UserId.Equals(loggedInAdminUserId)).ToList().ForEach(obj => obj.Last_LoggedOut_Time = DateTime.Now);
                 allAdmin.SaveChanges();
@@ -89,7 +89,7 @@ namespace DataAccessLayer
         public bool UpdateCashierDetails(CashierDetail cashier)
         {
             bool isCashierDetailsUpdated = false;
-            using (Store_BillingEntities1 updateCashierDetails = new Store_BillingEntities1())
+            using (Store_BillingEntities updateCashierDetails = new Store_BillingEntities())
             {
                 foreach(CashierDetail cashierDetails in updateCashierDetails.CashierDetails)
                 {
@@ -111,7 +111,7 @@ namespace DataAccessLayer
         {
             bool isCashierdeleted = false;
             CashierDetail selecetdCashierForDeletion = null;
-            using (Store_BillingEntities1 deleteCashier = new Store_BillingEntities1())
+            using (Store_BillingEntities deleteCashier = new Store_BillingEntities())
             {
                 foreach(CashierDetail cashierDetails in deleteCashier.CashierDetails)
                 {
@@ -135,7 +135,7 @@ namespace DataAccessLayer
         {
             bool isProductdeleted = false;
             StockDetail selecetdProductForDeletion = null;
-            using (Store_BillingEntities1 deleteProduct = new Store_BillingEntities1())
+            using (Store_BillingEntities deleteProduct = new Store_BillingEntities())
             {
                 foreach (StockDetail productDetails in deleteProduct.StockDetails)
                 {
@@ -155,16 +155,19 @@ namespace DataAccessLayer
                 return isProductdeleted;
             }
         }
-        public bool UpdateProductDetails(int productId, decimal productPrice, int availableQty)
+
+        public bool UpdateProductDetails(int productId, decimal productBuyingPrice, decimal productSellingPrice, decimal productMRP, int availableQty)
         {
             bool isProductDetailsUpdated = false;
-            using (Store_BillingEntities1 updateProductDetails = new Store_BillingEntities1())
+            using (Store_BillingEntities updateProductDetails = new Store_BillingEntities())
             {
                 foreach (StockDetail productDetails in updateProductDetails.StockDetails)
                 {
                     if (productDetails.ProductId == productId)
                     {
-                        productDetails.Price = productPrice;
+                        productDetails.BuyingPrice = productBuyingPrice;
+                        productDetails.SellingPrice = productSellingPrice;
+                        productDetails.MRP = productMRP;
                         productDetails.QuantityAvailable = availableQty;
                         isProductDetailsUpdated = true;
                         break;

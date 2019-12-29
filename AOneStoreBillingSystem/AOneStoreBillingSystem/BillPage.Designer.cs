@@ -36,16 +36,8 @@
             this.ProductName = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.Label();
             this.Quantity = new System.Windows.Forms.Label();
-            this.Discount = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Label();
             this.BilledProducts_GridView = new System.Windows.Forms.DataGridView();
-            this.SI_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.Bill_Number_textBox = new System.Windows.Forms.TextBox();
             this.BillDate_textBox = new System.Windows.Forms.TextBox();
@@ -54,7 +46,6 @@
             this.ProductName_textBox = new System.Windows.Forms.TextBox();
             this.Price_textBox = new System.Windows.Forms.TextBox();
             this.Quantity_textBox = new System.Windows.Forms.TextBox();
-            this.Discount_textBox = new System.Windows.Forms.TextBox();
             this.TotalBill_Amount_textBox = new System.Windows.Forms.TextBox();
             this.Product_Search_ListBox = new System.Windows.Forms.ListBox();
             this.Remove_Btn = new System.Windows.Forms.Button();
@@ -64,6 +55,15 @@
             this.Add_Product_Btn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Error_Message_Label = new System.Windows.Forms.Label();
+            this.MRP = new System.Windows.Forms.Label();
+            this.MRP_textBox = new System.Windows.Forms.TextBox();
+            this.SI_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_MRP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BilledProducts_GridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -131,16 +131,6 @@
             this.Quantity.TabIndex = 5;
             this.Quantity.Text = "Quantity";
             // 
-            // Discount
-            // 
-            this.Discount.AutoSize = true;
-            this.Discount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Discount.Location = new System.Drawing.Point(665, 64);
-            this.Discount.Name = "Discount";
-            this.Discount.Size = new System.Drawing.Size(70, 13);
-            this.Discount.TabIndex = 6;
-            this.Discount.Text = "Discount %";
-            // 
             // Search
             // 
             this.Search.AutoSize = true;
@@ -176,7 +166,7 @@
             this.Product_Name,
             this.Product_Quantity,
             this.Product_Price,
-            this.Product_Discount,
+            this.Product_MRP,
             this.Total});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -197,69 +187,6 @@
             this.BilledProducts_GridView.Size = new System.Drawing.Size(857, 263);
             this.BilledProducts_GridView.TabIndex = 8;
             this.BilledProducts_GridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.BilledProducts_GridView_CellMouseClick);
-            // 
-            // SI_No
-            // 
-            this.SI_No.FillWeight = 53.29952F;
-            this.SI_No.HeaderText = "SI.No";
-            this.SI_No.Name = "SI_No";
-            this.SI_No.ReadOnly = true;
-            this.SI_No.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.SI_No.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Product_Id
-            // 
-            this.Product_Id.FillWeight = 68.74908F;
-            this.Product_Id.HeaderText = "Product Id";
-            this.Product_Id.Name = "Product_Id";
-            this.Product_Id.ReadOnly = true;
-            this.Product_Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Product_Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Product_Name
-            // 
-            this.Product_Name.FillWeight = 197.9955F;
-            this.Product_Name.HeaderText = "Product Name";
-            this.Product_Name.Name = "Product_Name";
-            this.Product_Name.ReadOnly = true;
-            this.Product_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Product_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Product_Quantity
-            // 
-            this.Product_Quantity.FillWeight = 94.98905F;
-            this.Product_Quantity.HeaderText = "Quantity";
-            this.Product_Quantity.Name = "Product_Quantity";
-            this.Product_Quantity.ReadOnly = true;
-            this.Product_Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Product_Quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Product_Price
-            // 
-            this.Product_Price.FillWeight = 94.98905F;
-            this.Product_Price.HeaderText = "Price";
-            this.Product_Price.Name = "Product_Price";
-            this.Product_Price.ReadOnly = true;
-            this.Product_Price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Product_Price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Product_Discount
-            // 
-            this.Product_Discount.FillWeight = 94.98905F;
-            this.Product_Discount.HeaderText = "Discount Percentage";
-            this.Product_Discount.Name = "Product_Discount";
-            this.Product_Discount.ReadOnly = true;
-            this.Product_Discount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Product_Discount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Total
-            // 
-            this.Total.FillWeight = 94.98905F;
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label9
             // 
@@ -327,13 +254,6 @@
             this.Quantity_textBox.Size = new System.Drawing.Size(100, 20);
             this.Quantity_textBox.TabIndex = 17;
             // 
-            // Discount_textBox
-            // 
-            this.Discount_textBox.Location = new System.Drawing.Point(754, 61);
-            this.Discount_textBox.Name = "Discount_textBox";
-            this.Discount_textBox.Size = new System.Drawing.Size(85, 20);
-            this.Discount_textBox.TabIndex = 18;
-            // 
             // TotalBill_Amount_textBox
             // 
             this.TotalBill_Amount_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -356,7 +276,7 @@
             // Remove_Btn
             // 
             this.Remove_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Remove_Btn.Location = new System.Drawing.Point(754, 106);
+            this.Remove_Btn.Location = new System.Drawing.Point(749, 106);
             this.Remove_Btn.Name = "Remove_Btn";
             this.Remove_Btn.Size = new System.Drawing.Size(82, 38);
             this.Remove_Btn.TabIndex = 23;
@@ -395,6 +315,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel2.Controls.Add(this.MRP_textBox);
+            this.panel2.Controls.Add(this.MRP);
             this.panel2.Controls.Add(this.Product_Search_Textbox);
             this.panel2.Controls.Add(this.Search);
             this.panel2.Controls.Add(this.Product_Search_ListBox);
@@ -404,11 +326,9 @@
             this.panel2.Controls.Add(this.ProductId);
             this.panel2.Controls.Add(this.ProductName_textBox);
             this.panel2.Controls.Add(this.ProductName);
-            this.panel2.Controls.Add(this.Discount_textBox);
             this.panel2.Controls.Add(this.Price_textBox);
             this.panel2.Controls.Add(this.Quantity_textBox);
             this.panel2.Controls.Add(this.Price);
-            this.panel2.Controls.Add(this.Discount);
             this.panel2.Controls.Add(this.Quantity);
             this.panel2.Location = new System.Drawing.Point(15, 52);
             this.panel2.Name = "panel2";
@@ -450,6 +370,88 @@
             this.Error_Message_Label.Size = new System.Drawing.Size(0, 16);
             this.Error_Message_Label.TabIndex = 25;
             // 
+            // MRP
+            // 
+            this.MRP.AutoSize = true;
+            this.MRP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MRP.Location = new System.Drawing.Point(676, 64);
+            this.MRP.Name = "MRP";
+            this.MRP.Size = new System.Drawing.Size(34, 13);
+            this.MRP.TabIndex = 24;
+            this.MRP.Text = "MRP";
+            // 
+            // MRP_textBox
+            // 
+            this.MRP_textBox.AcceptsTab = true;
+            this.MRP_textBox.Location = new System.Drawing.Point(731, 60);
+            this.MRP_textBox.Name = "MRP_textBox";
+            this.MRP_textBox.ReadOnly = true;
+            this.MRP_textBox.Size = new System.Drawing.Size(100, 20);
+            this.MRP_textBox.TabIndex = 25;
+            // 
+            // SI_No
+            // 
+            this.SI_No.FillWeight = 53.29952F;
+            this.SI_No.HeaderText = "SI.No";
+            this.SI_No.Name = "SI_No";
+            this.SI_No.ReadOnly = true;
+            this.SI_No.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.SI_No.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Product_Id
+            // 
+            this.Product_Id.FillWeight = 68.74908F;
+            this.Product_Id.HeaderText = "Product Id";
+            this.Product_Id.Name = "Product_Id";
+            this.Product_Id.ReadOnly = true;
+            this.Product_Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Product_Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Product_Name
+            // 
+            this.Product_Name.FillWeight = 197.9955F;
+            this.Product_Name.HeaderText = "Product Name";
+            this.Product_Name.Name = "Product_Name";
+            this.Product_Name.ReadOnly = true;
+            this.Product_Name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Product_Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Product_Quantity
+            // 
+            this.Product_Quantity.FillWeight = 94.98905F;
+            this.Product_Quantity.HeaderText = "Quantity";
+            this.Product_Quantity.Name = "Product_Quantity";
+            this.Product_Quantity.ReadOnly = true;
+            this.Product_Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Product_Quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Product_Price
+            // 
+            this.Product_Price.FillWeight = 94.98905F;
+            this.Product_Price.HeaderText = "Price";
+            this.Product_Price.Name = "Product_Price";
+            this.Product_Price.ReadOnly = true;
+            this.Product_Price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Product_Price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Product_MRP
+            // 
+            this.Product_MRP.FillWeight = 94.98905F;
+            this.Product_MRP.HeaderText = "M.R.P";
+            this.Product_MRP.Name = "Product_MRP";
+            this.Product_MRP.ReadOnly = true;
+            this.Product_MRP.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Product_MRP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Total
+            // 
+            this.Total.FillWeight = 94.98905F;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // BillPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,7 +491,6 @@
         private System.Windows.Forms.Label ProductName;
         private System.Windows.Forms.Label Price;
         private System.Windows.Forms.Label Quantity;
-        private System.Windows.Forms.Label Discount;
         private System.Windows.Forms.Label Search;
         private System.Windows.Forms.DataGridView BilledProducts_GridView;
         private System.Windows.Forms.Label label9;
@@ -500,7 +501,6 @@
         private System.Windows.Forms.TextBox ProductName_textBox;
         private System.Windows.Forms.TextBox Price_textBox;
         private System.Windows.Forms.TextBox Quantity_textBox;
-        private System.Windows.Forms.TextBox Discount_textBox;
         private System.Windows.Forms.TextBox TotalBill_Amount_textBox;
         private System.Windows.Forms.ListBox Product_Search_ListBox;
         private System.Windows.Forms.Button Remove_Btn;
@@ -510,12 +510,14 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button Add_Product_Btn;
         private System.Windows.Forms.Label Error_Message_Label;
+        private System.Windows.Forms.TextBox MRP_textBox;
+        private System.Windows.Forms.Label MRP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SI_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_MRP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

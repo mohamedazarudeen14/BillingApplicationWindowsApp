@@ -13,10 +13,10 @@ namespace CommonClasses
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Store_BillingEntities1 : DbContext
+    public partial class Store_BillingEntities : DbContext
     {
-        public Store_BillingEntities1()
-            : base("name=Store_BillingEntities1")
+        public Store_BillingEntities()
+            : base("name=Store_BillingEntities")
         {
         }
     
