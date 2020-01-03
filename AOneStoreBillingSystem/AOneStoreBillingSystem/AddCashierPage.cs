@@ -124,6 +124,7 @@ namespace AOneStoreBillingSystem
                     cashierDetails.Add(listView);
                 }
             }
+
             if (e != null)
             {
                 e.Result = allCashierDetails;
@@ -171,7 +172,6 @@ namespace AOneStoreBillingSystem
             CashierNumber_textBox.Text = string.Empty;
             CashierPassword_textBox.Text = string.Empty;
             CashierConformPassword_textBox.Text = string.Empty;
-
         }
 
         private void UpdateCashier_button_Click(object sender, EventArgs e)
@@ -276,6 +276,5 @@ namespace AOneStoreBillingSystem
                 MessageBox.Show(Constants.CASHIER_NOT_DELETED_MESSAGE);
             }
         }
-
     }
 }

@@ -54,3 +54,21 @@ C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneSto
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\CommonClasses.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\CommonClasses.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\CommonClasses.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\BusinessLayer\obj\Debug\BusinessLayer.pdb

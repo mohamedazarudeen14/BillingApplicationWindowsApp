@@ -28,23 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridView TransactionDataGridView;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.FromDateDatePicker = new System.Windows.Forms.DateTimePicker();
             this.ToDateDatePicker = new System.Windows.Forms.DateTimePicker();
             this.TransactionDetails_label = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.From_label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GetDetails_button = new System.Windows.Forms.Button();
-            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BillNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalBillAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCostAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalProfitAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalesDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            TransactionDataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(TransactionDataGridView)).BeginInit();
+            this.TransactionDetail_ListView = new System.Windows.Forms.ListView();
+            this.SerialNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BillNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TotalBillAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TotalCostPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ProfitAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // FromDateDatePicker
@@ -70,46 +66,6 @@
             this.TransactionDetails_label.Size = new System.Drawing.Size(187, 24);
             this.TransactionDetails_label.TabIndex = 2;
             this.TransactionDetails_label.Text = "Transaction Details";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(403, 22);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(8, 8);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // TransactionDataGridView
-            // 
-            TransactionDataGridView.AllowUserToResizeColumns = false;
-            TransactionDataGridView.AllowUserToResizeRows = false;
-            TransactionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            TransactionDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            TransactionDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            TransactionDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            TransactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            TransactionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SerialNumber,
-            this.BillNumber,
-            this.TotalBillAmount,
-            this.TotalCostAmount,
-            this.TotalProfitAmount,
-            this.SalesDate});
-            TransactionDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            TransactionDataGridView.Location = new System.Drawing.Point(403, 71);
-            TransactionDataGridView.Name = "TransactionDataGridView";
-            TransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            TransactionDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            TransactionDataGridView.Size = new System.Drawing.Size(710, 440);
-            TransactionDataGridView.TabIndex = 4;
             // 
             // From_label
             // 
@@ -139,54 +95,69 @@
             this.GetDetails_button.TabIndex = 7;
             this.GetDetails_button.Text = "Get Details";
             this.GetDetails_button.UseVisualStyleBackColor = true;
+            this.GetDetails_button.Click += new System.EventHandler(this.GetDetails_button_Click);
+            // 
+            // TransactionDetail_ListView
+            // 
+            this.TransactionDetail_ListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TransactionDetail_ListView.AutoArrange = false;
+            this.TransactionDetail_ListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TransactionDetail_ListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SerialNumber,
+            this.Date,
+            this.BillNumber,
+            this.TotalBillAmount,
+            this.TotalCostPrice,
+            this.ProfitAmount});
+            this.TransactionDetail_ListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransactionDetail_ListView.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.TransactionDetail_ListView.FullRowSelect = true;
+            this.TransactionDetail_ListView.GridLines = true;
+            this.TransactionDetail_ListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.TransactionDetail_ListView.HideSelection = false;
+            this.TransactionDetail_ListView.LabelWrap = false;
+            this.TransactionDetail_ListView.Location = new System.Drawing.Point(403, 71);
+            this.TransactionDetail_ListView.Name = "TransactionDetail_ListView";
+            this.TransactionDetail_ListView.Size = new System.Drawing.Size(638, 426);
+            this.TransactionDetail_ListView.TabIndex = 15;
+            this.TransactionDetail_ListView.UseCompatibleStateImageBehavior = false;
+            this.TransactionDetail_ListView.View = System.Windows.Forms.View.Details;
+            this.TransactionDetail_ListView.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.TransactionDetail_ListView_ColumnWidthChanging);
             // 
             // SerialNumber
             // 
-            this.SerialNumber.HeaderText = "S.No";
-            this.SerialNumber.Name = "SerialNumber";
-            this.SerialNumber.ReadOnly = true;
-            this.SerialNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.SerialNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.SerialNumber.Text = "S.NO.";
+            this.SerialNumber.Width = 74;
+            // 
+            // Date
+            // 
+            this.Date.Text = "Date";
+            this.Date.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Date.Width = 103;
             // 
             // BillNumber
             // 
-            this.BillNumber.HeaderText = "Bill Number";
-            this.BillNumber.Name = "BillNumber";
-            this.BillNumber.ReadOnly = true;
-            this.BillNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.BillNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.BillNumber.Text = "BillNo.";
+            this.BillNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BillNumber.Width = 98;
             // 
             // TotalBillAmount
             // 
-            this.TotalBillAmount.HeaderText = "Total Bill Amount";
-            this.TotalBillAmount.Name = "TotalBillAmount";
-            this.TotalBillAmount.ReadOnly = true;
-            this.TotalBillAmount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TotalBillAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TotalBillAmount.Text = "TotalBillAmount";
+            this.TotalBillAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TotalBillAmount.Width = 115;
             // 
-            // TotalCostAmount
+            // TotalCostPrice
             // 
-            this.TotalCostAmount.HeaderText = "Total Cost Amount";
-            this.TotalCostAmount.Name = "TotalCostAmount";
-            this.TotalCostAmount.ReadOnly = true;
-            this.TotalCostAmount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TotalCostAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TotalCostPrice.Text = "TotalCostPrice";
+            this.TotalCostPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TotalCostPrice.Width = 111;
             // 
-            // TotalProfitAmount
+            // ProfitAmount
             // 
-            this.TotalProfitAmount.HeaderText = "Total Profit Amount";
-            this.TotalProfitAmount.Name = "TotalProfitAmount";
-            this.TotalProfitAmount.ReadOnly = true;
-            this.TotalProfitAmount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TotalProfitAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // SalesDate
-            // 
-            this.SalesDate.HeaderText = "Sales Date";
-            this.SalesDate.Name = "SalesDate";
-            this.SalesDate.ReadOnly = true;
-            this.SalesDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.SalesDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ProfitAmount.Text = "ProfitAmount";
+            this.ProfitAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ProfitAmount.Width = 133;
             // 
             // TransactionDetails
             // 
@@ -194,18 +165,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 552);
             this.ControlBox = false;
+            this.Controls.Add(this.TransactionDetail_ListView);
             this.Controls.Add(this.GetDetails_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.From_label);
-            this.Controls.Add(TransactionDataGridView);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TransactionDetails_label);
             this.Controls.Add(this.ToDateDatePicker);
             this.Controls.Add(this.FromDateDatePicker);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionDetails";
             this.Text = "TransactionDetails";
-            ((System.ComponentModel.ISupportInitialize)(TransactionDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,15 +185,15 @@
         private System.Windows.Forms.DateTimePicker FromDateDatePicker;
         private System.Windows.Forms.DateTimePicker ToDateDatePicker;
         private System.Windows.Forms.Label TransactionDetails_label;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label From_label;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button GetDetails_button;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BillNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalBillAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalProfitAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SalesDate;
+        private System.Windows.Forms.ColumnHeader SerialNumber;
+        private System.Windows.Forms.ColumnHeader Date;
+        public System.Windows.Forms.ListView TransactionDetail_ListView;
+        private System.Windows.Forms.ColumnHeader BillNumber;
+        private System.Windows.Forms.ColumnHeader TotalBillAmount;
+        private System.Windows.Forms.ColumnHeader TotalCostPrice;
+        private System.Windows.Forms.ColumnHeader ProfitAmount;
     }
 }

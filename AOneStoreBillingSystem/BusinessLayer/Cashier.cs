@@ -50,26 +50,26 @@ namespace BusinessLayer
                     salesDetail.TotalBillAmount = totalBillAmount;
                     salesDetail.TotalCostPrice = totalCostPrice;
                     salesDetail.ProfitAmount = totalProfit;
-                    salesDetail.SalesDate = DateTime.Today.ToString("dd-MM-yyyy");
+                    salesDetail.SalesDate = DateTime.Today;
                     purchasedProducts.Add(salesDetail);
                 }
             }
             Task.Run(() => cashierDataAccess.AddSalesDetails(purchasedProducts));
             Task.Run(() => cashierDataAccess.QuantityReduction(purchased));
         }
-
+        
         public string GetCurrentBillNumber()
         {
             List<SalesDetail> allSalesDetails = cashierDataAccess.RetrieveAllSalesDetails();
             if(allSalesDetails.Count > 0)
             {
-                if(allSalesDetails[allSalesDetails.Count - 1].SalesDate != DateTime.Today.ToString("dd-MM-yyyy"))
+                if(allSalesDetails[allSalesDetails.Count - 1].SalesDate != DateTime.Today)
                 {
                     return "1";
                 }
                 else
                 {
-                    return (allSalesDetails.Where(obj => obj.SalesDate == DateTime.Today.ToString("dd-MM-yyyy")).Max(obj => obj.BillNos) + 1).ToString();
+                    return (allSalesDetails.Where(obj => obj.SalesDate == DateTime.Today).Max(obj => obj.BillNos) + 1).ToString();
                 }
             }
             else

@@ -32,7 +32,7 @@
             this.AddCashier_MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StockDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchProduct_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminHomePage_MenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -43,7 +43,7 @@
             this.AddCashier_MenuStrip,
             this.transactionDetailsToolStripMenuItem,
             this.StockDetailsToolStripMenuItem,
-            this.salesToolStripMenuItem,
+            this.SearchProduct_MenuItem,
             this.logoutToolStripMenuItem});
             this.AdminHomePage_MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.AdminHomePage_MenuStrip.Name = "AdminHomePage_MenuStrip";
@@ -75,12 +75,13 @@
             this.StockDetailsToolStripMenuItem.Text = "Stock Details";
             this.StockDetailsToolStripMenuItem.Click += new System.EventHandler(this.StockDetailsToolStripMenuItem_Click);
             // 
-            // salesToolStripMenuItem
+            // SearchProduct_MenuItem
             // 
-            this.salesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(58, 25);
-            this.salesToolStripMenuItem.Text = "Sales";
+            this.SearchProduct_MenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.SearchProduct_MenuItem.Name = "SearchProduct_MenuItem";
+            this.SearchProduct_MenuItem.Size = new System.Drawing.Size(127, 25);
+            this.SearchProduct_MenuItem.Text = "Search Product";
+            this.SearchProduct_MenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -117,7 +118,7 @@
         private System.Windows.Forms.ToolStripMenuItem AddCashier_MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem transactionDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem StockDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SearchProduct_MenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

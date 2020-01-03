@@ -107,3 +107,37 @@ C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneSto
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.Properties.Resources.resources
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.csproj.GenerateResource.Cache
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.TransactionDetails.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\AOneStoreBillingSystem.exe.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\AOneStoreBillingSystem.exe
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\AOneStoreBillingSystem.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\BusinessLayer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\CommonClasses.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\EntityFramework.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\EntityFramework.SqlServer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\DataAccessLayer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\BusinessLayer.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\BusinessLayer.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\CommonClasses.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\CommonClasses.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\EntityFramework.xml
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\EntityFramework.SqlServer.xml
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\DataAccessLayer.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\bin\Debug\DataAccessLayer.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.csprojAssemblyReference.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.AddCashierPage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.AddStockPage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.AdminHomePage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.BillingPage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.BillPage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.CashierHomePage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.CashierLogin.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.AdminLogin.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.HomePage.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.Properties.Resources.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.TransactionDetails.resources
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.csproj.GenerateResource.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.csproj.CoreCompileInputs.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.csproj.CopyComplete
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.exe
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.SearchProduct.resources

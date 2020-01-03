@@ -39,7 +39,7 @@
     <Property Name="TotalBillAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="TotalCostPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="ProfitAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="SalesDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SalesDate" Nullable="false" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="StockDetail">
     <Key>

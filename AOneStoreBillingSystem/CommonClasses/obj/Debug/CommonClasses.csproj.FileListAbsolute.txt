@@ -38,3 +38,15 @@ C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneSto
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.dll
 C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\CommonClasses.dll.config
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\CommonClasses.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\CommonClasses.pdb
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.SqlServer.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.xml
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\bin\Debug\EntityFramework.SqlServer.xml
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.csprojAssemblyReference.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.csproj.CoreCompileInputs.cache
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.csproj.CopyComplete
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.dll
+C:\myFiles\BillingApp\AOneStoreBillingSystem\CommonClasses\obj\Debug\CommonClasses.pdb

@@ -6,9 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7f44939e1a8f4fea9a9274844e6c0489" Name="Diagram1">
         <EntityTypeShape EntityType="Store_BillingModel.AdminDetail" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Store_BillingModel.CashierDetail" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Store_BillingModel.SalesDetail" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Store_BillingModel.StockDetail" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Store_BillingModel.CashierDetail" Width="1.5" PointX="2.625" PointY="0.75" />
+        <EntityTypeShape EntityType="Store_BillingModel.SalesDetail" Width="1.5" PointX="4.75" PointY="0.875" />
+        <EntityTypeShape EntityType="Store_BillingModel.StockDetail" Width="1.5" PointX="7" PointY="0.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

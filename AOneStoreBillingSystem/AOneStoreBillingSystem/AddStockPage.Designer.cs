@@ -45,6 +45,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description_label = new System.Windows.Forms.Label();
             this.BuyingPrice_label = new System.Windows.Forms.Label();
             this.Description_textbox = new System.Windows.Forms.TextBox();
@@ -53,8 +55,6 @@
             this.MRP_textBox = new System.Windows.Forms.TextBox();
             this.Quantity_label = new System.Windows.Forms.Label();
             this.Quantity_textBox = new System.Windows.Forms.TextBox();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // SellingPrice_lable
@@ -178,7 +178,6 @@
             this.AllProduct_ListView.LabelWrap = false;
             this.AllProduct_ListView.Location = new System.Drawing.Point(431, 40);
             this.AllProduct_ListView.Name = "AllProduct_ListView";
-            this.AllProduct_ListView.Scrollable = false;
             this.AllProduct_ListView.Size = new System.Drawing.Size(700, 473);
             this.AllProduct_ListView.TabIndex = 47;
             this.AllProduct_ListView.UseCompatibleStateImageBehavior = false;
@@ -213,6 +212,18 @@
             this.columnHeader5.Text = "Selling Price";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 84;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "MRP";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 72;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Quantity Available";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 120;
             // 
             // Description_label
             // 
@@ -277,18 +288,6 @@
             this.Quantity_textBox.Name = "Quantity_textBox";
             this.Quantity_textBox.Size = new System.Drawing.Size(216, 20);
             this.Quantity_textBox.TabIndex = 51;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "MRP";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 72;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Quantity Available";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 120;
             // 
             // AddStockPage
             // 

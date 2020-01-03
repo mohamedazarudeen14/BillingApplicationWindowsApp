@@ -19,6 +19,6 @@ namespace CommonClasses
         public decimal TotalBillAmount { get; set; }
         public decimal TotalCostPrice { get; set; }
         public decimal ProfitAmount { get; set; }
-        public string SalesDate { get; set; }
+        public System.DateTime SalesDate { get; set; }
     }
 }

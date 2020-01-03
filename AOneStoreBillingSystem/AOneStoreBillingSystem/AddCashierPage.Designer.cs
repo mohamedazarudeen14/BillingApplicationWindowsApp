@@ -181,7 +181,6 @@
             this.AllCashier_ListView.LabelWrap = false;
             this.AllCashier_ListView.Location = new System.Drawing.Point(432, 28);
             this.AllCashier_ListView.Name = "AllCashier_ListView";
-            this.AllCashier_ListView.Scrollable = false;
             this.AllCashier_ListView.Size = new System.Drawing.Size(525, 423);
             this.AllCashier_ListView.TabIndex = 15;
             this.AllCashier_ListView.UseCompatibleStateImageBehavior = false;

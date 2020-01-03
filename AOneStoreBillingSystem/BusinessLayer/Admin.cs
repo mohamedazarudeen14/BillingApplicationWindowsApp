@@ -10,6 +10,7 @@ namespace BusinessLayer
 {
     public class Admin
     {
+        private CashierDataAccess cashierDataAccess = new CashierDataAccess();
         private AdminDataAccess accessDB = new AdminDataAccess();
 
         public void CheckDbConnection()
@@ -117,6 +118,17 @@ namespace BusinessLayer
             List<StockDetail> allProuctdetails = accessDB.GetAllStock();
 
             return allProuctdetails.Any(obj => obj.ProductId.Equals(productId));
+        }
+        
+        public List<SalesDetail> GetSalesDetailsForSelectedDate(DateTime fromDate, DateTime toDate)
+        {
+            List<SalesDetail> allSalesDetails = cashierDataAccess.RetrieveAllSalesDetails();
+            if (allSalesDetails.Count > 0)
+            {
+                List<SalesDetail> selectedDateSalesDetails = allSalesDetails.Where(x => x.SalesDate >= fromDate && x.SalesDate <= toDate).OrderByDescending(x => x.SalesDate).ToList();
+                return allSalesDetails;
+            }
+            return new List<SalesDetail>();
         }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Store_BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Store_BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -38,7 +38,7 @@
           <Property Name="TotalBillAmount" Type="money" Nullable="false" />
           <Property Name="TotalCostPrice" Type="money" Nullable="false" />
           <Property Name="ProfitAmount" Type="money" Nullable="false" />
-          <Property Name="SalesDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SalesDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="StockDetails">
           <Key>
@@ -102,7 +102,7 @@
           <Property Name="TotalBillAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="TotalCostPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="ProfitAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="SalesDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalesDate" Nullable="false" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="StockDetail">
           <Key>

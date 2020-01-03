@@ -39,41 +39,45 @@
             // 
             // adminUserId_textBox
             // 
-            this.adminUserId_textBox.Location = new System.Drawing.Point(81, 55);
+            this.adminUserId_textBox.Location = new System.Drawing.Point(85, 23);
             this.adminUserId_textBox.Name = "adminUserId_textBox";
-            this.adminUserId_textBox.Size = new System.Drawing.Size(133, 20);
+            this.adminUserId_textBox.Size = new System.Drawing.Size(168, 20);
             this.adminUserId_textBox.TabIndex = 0;
             // 
             // adminPassword_textBox
             // 
-            this.adminPassword_textBox.Location = new System.Drawing.Point(81, 92);
+            this.adminPassword_textBox.Location = new System.Drawing.Point(85, 67);
             this.adminPassword_textBox.Name = "adminPassword_textBox";
-            this.adminPassword_textBox.Size = new System.Drawing.Size(133, 20);
+            this.adminPassword_textBox.Size = new System.Drawing.Size(168, 20);
             this.adminPassword_textBox.TabIndex = 1;
             this.adminPassword_textBox.TextChanged += new System.EventHandler(this.adminPassword_textBox_TextChanged);
             // 
             // UserId_label
             // 
             this.UserId_label.AutoSize = true;
-            this.UserId_label.Location = new System.Drawing.Point(13, 55);
+            this.UserId_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserId_label.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.UserId_label.Location = new System.Drawing.Point(17, 26);
             this.UserId_label.Name = "UserId_label";
-            this.UserId_label.Size = new System.Drawing.Size(41, 13);
+            this.UserId_label.Size = new System.Drawing.Size(48, 13);
             this.UserId_label.TabIndex = 2;
             this.UserId_label.Text = "User Id";
             // 
             // Password_label
             // 
             this.Password_label.AutoSize = true;
-            this.Password_label.Location = new System.Drawing.Point(13, 99);
+            this.Password_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password_label.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.Password_label.Location = new System.Drawing.Point(17, 70);
             this.Password_label.Name = "Password_label";
-            this.Password_label.Size = new System.Drawing.Size(53, 13);
+            this.Password_label.Size = new System.Drawing.Size(61, 13);
             this.Password_label.TabIndex = 3;
             this.Password_label.Text = "Password";
             // 
             // Showpassword_checkBox
             // 
             this.Showpassword_checkBox.AutoSize = true;
-            this.Showpassword_checkBox.Location = new System.Drawing.Point(81, 131);
+            this.Showpassword_checkBox.Location = new System.Drawing.Point(85, 103);
             this.Showpassword_checkBox.Name = "Showpassword_checkBox";
             this.Showpassword_checkBox.Size = new System.Drawing.Size(102, 17);
             this.Showpassword_checkBox.TabIndex = 4;
@@ -83,29 +87,31 @@
             // 
             // Loginbutton
             // 
-            this.Loginbutton.Location = new System.Drawing.Point(81, 170);
+            this.Loginbutton.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Loginbutton.Location = new System.Drawing.Point(85, 141);
             this.Loginbutton.Name = "Loginbutton";
             this.Loginbutton.Size = new System.Drawing.Size(75, 23);
             this.Loginbutton.TabIndex = 5;
             this.Loginbutton.Text = "Login";
-            this.Loginbutton.UseVisualStyleBackColor = true;
+            this.Loginbutton.UseVisualStyleBackColor = false;
             this.Loginbutton.Click += new System.EventHandler(this.Loginbutton_Click);
             // 
             // Exitbutton
             // 
-            this.Exitbutton.Location = new System.Drawing.Point(177, 170);
+            this.Exitbutton.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Exitbutton.Location = new System.Drawing.Point(178, 141);
             this.Exitbutton.Name = "Exitbutton";
             this.Exitbutton.Size = new System.Drawing.Size(75, 23);
             this.Exitbutton.TabIndex = 7;
             this.Exitbutton.Text = "Exit";
-            this.Exitbutton.UseVisualStyleBackColor = true;
+            this.Exitbutton.UseVisualStyleBackColor = false;
             this.Exitbutton.Click += new System.EventHandler(this.Exitbutton_Click);
             // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 187);
             this.Controls.Add(this.Exitbutton);
             this.Controls.Add(this.Loginbutton);
             this.Controls.Add(this.Showpassword_checkBox);
