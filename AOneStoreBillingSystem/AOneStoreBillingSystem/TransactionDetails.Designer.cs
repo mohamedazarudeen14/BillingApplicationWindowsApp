@@ -41,6 +41,12 @@
             this.TotalBillAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TotalCostPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ProfitAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Total_Bill_Amount = new System.Windows.Forms.Label();
+            this.Total_Cost_Price = new System.Windows.Forms.Label();
+            this.Total_Profit_Amount = new System.Windows.Forms.Label();
+            this.TotalBillAmount_Textbox = new System.Windows.Forms.TextBox();
+            this.TotalCostPrice_Textbox = new System.Windows.Forms.TextBox();
+            this.TotalProfitAmount_Textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // FromDateDatePicker
@@ -89,7 +95,7 @@
             // 
             // GetDetails_button
             // 
-            this.GetDetails_button.Location = new System.Drawing.Point(227, 360);
+            this.GetDetails_button.Location = new System.Drawing.Point(143, 254);
             this.GetDetails_button.Name = "GetDetails_button";
             this.GetDetails_button.Size = new System.Drawing.Size(107, 45);
             this.GetDetails_button.TabIndex = 7;
@@ -159,12 +165,72 @@
             this.ProfitAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ProfitAmount.Width = 133;
             // 
+            // Total_Bill_Amount
+            // 
+            this.Total_Bill_Amount.AutoSize = true;
+            this.Total_Bill_Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total_Bill_Amount.Location = new System.Drawing.Point(45, 338);
+            this.Total_Bill_Amount.Name = "Total_Bill_Amount";
+            this.Total_Bill_Amount.Size = new System.Drawing.Size(125, 16);
+            this.Total_Bill_Amount.TabIndex = 16;
+            this.Total_Bill_Amount.Text = "Total Bill Amount";
+            // 
+            // Total_Cost_Price
+            // 
+            this.Total_Cost_Price.AutoSize = true;
+            this.Total_Cost_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total_Cost_Price.Location = new System.Drawing.Point(45, 395);
+            this.Total_Cost_Price.Name = "Total_Cost_Price";
+            this.Total_Cost_Price.Size = new System.Drawing.Size(119, 16);
+            this.Total_Cost_Price.TabIndex = 17;
+            this.Total_Cost_Price.Text = "Total Cost Price";
+            // 
+            // Total_Profit_Amount
+            // 
+            this.Total_Profit_Amount.AutoSize = true;
+            this.Total_Profit_Amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total_Profit_Amount.Location = new System.Drawing.Point(45, 455);
+            this.Total_Profit_Amount.Name = "Total_Profit_Amount";
+            this.Total_Profit_Amount.Size = new System.Drawing.Size(139, 16);
+            this.Total_Profit_Amount.TabIndex = 18;
+            this.Total_Profit_Amount.Text = "Total Profit Amount";
+            // 
+            // TotalBillAmount_Textbox
+            // 
+            this.TotalBillAmount_Textbox.Location = new System.Drawing.Point(195, 337);
+            this.TotalBillAmount_Textbox.Name = "TotalBillAmount_Textbox";
+            this.TotalBillAmount_Textbox.ReadOnly = true;
+            this.TotalBillAmount_Textbox.Size = new System.Drawing.Size(139, 20);
+            this.TotalBillAmount_Textbox.TabIndex = 19;
+            // 
+            // TotalCostPrice_Textbox
+            // 
+            this.TotalCostPrice_Textbox.Location = new System.Drawing.Point(195, 392);
+            this.TotalCostPrice_Textbox.Name = "TotalCostPrice_Textbox";
+            this.TotalCostPrice_Textbox.ReadOnly = true;
+            this.TotalCostPrice_Textbox.Size = new System.Drawing.Size(139, 20);
+            this.TotalCostPrice_Textbox.TabIndex = 20;
+            // 
+            // TotalProfitAmount_Textbox
+            // 
+            this.TotalProfitAmount_Textbox.Location = new System.Drawing.Point(195, 452);
+            this.TotalProfitAmount_Textbox.Name = "TotalProfitAmount_Textbox";
+            this.TotalProfitAmount_Textbox.ReadOnly = true;
+            this.TotalProfitAmount_Textbox.Size = new System.Drawing.Size(139, 20);
+            this.TotalProfitAmount_Textbox.TabIndex = 21;
+            // 
             // TransactionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 552);
             this.ControlBox = false;
+            this.Controls.Add(this.TotalProfitAmount_Textbox);
+            this.Controls.Add(this.TotalCostPrice_Textbox);
+            this.Controls.Add(this.TotalBillAmount_Textbox);
+            this.Controls.Add(this.Total_Profit_Amount);
+            this.Controls.Add(this.Total_Cost_Price);
+            this.Controls.Add(this.Total_Bill_Amount);
             this.Controls.Add(this.TransactionDetail_ListView);
             this.Controls.Add(this.GetDetails_button);
             this.Controls.Add(this.label2);
@@ -173,8 +239,10 @@
             this.Controls.Add(this.ToDateDatePicker);
             this.Controls.Add(this.FromDateDatePicker);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "TransactionDetails";
             this.Text = "TransactionDetails";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransactionDetails_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +263,11 @@
         private System.Windows.Forms.ColumnHeader TotalBillAmount;
         private System.Windows.Forms.ColumnHeader TotalCostPrice;
         private System.Windows.Forms.ColumnHeader ProfitAmount;
+        private System.Windows.Forms.Label Total_Bill_Amount;
+        private System.Windows.Forms.Label Total_Cost_Price;
+        private System.Windows.Forms.Label Total_Profit_Amount;
+        private System.Windows.Forms.TextBox TotalBillAmount_Textbox;
+        private System.Windows.Forms.TextBox TotalCostPrice_Textbox;
+        private System.Windows.Forms.TextBox TotalProfitAmount_Textbox;
     }
 }

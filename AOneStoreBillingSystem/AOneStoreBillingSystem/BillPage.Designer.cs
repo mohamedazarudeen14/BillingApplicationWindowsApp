@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BillNo = new System.Windows.Forms.Label();
             this.ProductId = new System.Windows.Forms.Label();
             this.Date = new System.Windows.Forms.Label();
@@ -64,6 +64,8 @@
             this.Add_Product_Btn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Error_Message_Label = new System.Windows.Forms.Label();
+            this.QuantityAvailableTextBox = new System.Windows.Forms.TextBox();
+            this.QuantityAvailableLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BilledProducts_GridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -151,14 +153,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BilledProducts_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BilledProducts_GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BilledProducts_GridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.BilledProducts_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BilledProducts_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SI_No,
@@ -168,14 +170,14 @@
             this.Product_Price,
             this.Product_MRP,
             this.Total});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BilledProducts_GridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BilledProducts_GridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.BilledProducts_GridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.BilledProducts_GridView.Location = new System.Drawing.Point(15, 229);
             this.BilledProducts_GridView.MultiSelect = false;
@@ -379,6 +381,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel2.Controls.Add(this.QuantityAvailableTextBox);
+            this.panel2.Controls.Add(this.QuantityAvailableLabel);
             this.panel2.Controls.Add(this.MRP_textBox);
             this.panel2.Controls.Add(this.MRP);
             this.panel2.Controls.Add(this.Product_Search_Textbox);
@@ -448,10 +452,28 @@
             this.Error_Message_Label.AutoSize = true;
             this.Error_Message_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Error_Message_Label.ForeColor = System.Drawing.Color.Red;
-            this.Error_Message_Label.Location = new System.Drawing.Point(334, 28);
+            this.Error_Message_Label.Location = new System.Drawing.Point(202, 25);
             this.Error_Message_Label.Name = "Error_Message_Label";
             this.Error_Message_Label.Size = new System.Drawing.Size(0, 16);
             this.Error_Message_Label.TabIndex = 25;
+            // 
+            // QuantityAvailableTextBox
+            // 
+            this.QuantityAvailableTextBox.Location = new System.Drawing.Point(337, 106);
+            this.QuantityAvailableTextBox.Name = "QuantityAvailableTextBox";
+            this.QuantityAvailableTextBox.ReadOnly = true;
+            this.QuantityAvailableTextBox.Size = new System.Drawing.Size(100, 20);
+            this.QuantityAvailableTextBox.TabIndex = 27;
+            // 
+            // QuantityAvailableLabel
+            // 
+            this.QuantityAvailableLabel.AutoSize = true;
+            this.QuantityAvailableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuantityAvailableLabel.Location = new System.Drawing.Point(208, 109);
+            this.QuantityAvailableLabel.Name = "QuantityAvailableLabel";
+            this.QuantityAvailableLabel.Size = new System.Drawing.Size(110, 13);
+            this.QuantityAvailableLabel.TabIndex = 26;
+            this.QuantityAvailableLabel.Text = "Available Quantity";
             // 
             // BillPage
             // 
@@ -520,5 +542,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_MRP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.TextBox QuantityAvailableTextBox;
+        private System.Windows.Forms.Label QuantityAvailableLabel;
     }
 }

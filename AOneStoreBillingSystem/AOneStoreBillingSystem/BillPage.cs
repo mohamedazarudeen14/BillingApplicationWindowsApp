@@ -90,6 +90,11 @@ namespace AOneStoreBillingSystem
                     Error_Message_Label.Text = Constants.ENTER_VALID_QUANTITY_ERROR_MESSAGE;
                     HideWarningMessage();
                 }
+                else if(Convert.ToInt64(Quantity_textBox.Text) <= Convert.ToInt64(QuantityAvailableTextBox.Text))
+                {
+                    Error_Message_Label.Text = "Entered Quantity is greater than Available Quantity";
+                    HideWarningMessage();
+                }
                 else
                 {
                     BilledProducts_GridView.SelectedRows[0].Cells[3].Value = Quantity_textBox.Text;
@@ -110,6 +115,11 @@ namespace AOneStoreBillingSystem
                 else if (Quantity_textBox.Text == string.Empty || !int.TryParse(Quantity_textBox.Text, out validationCheck) || Quantity_textBox.Text == "0")
                 {
                     Error_Message_Label.Text = Constants.ENTER_VALID_QUANTITY_ERROR_MESSAGE;
+                    HideWarningMessage();
+                }
+                else if (Convert.ToInt64(QuantityAvailableTextBox.Text) < Convert.ToInt64(Quantity_textBox.Text))
+                {
+                    Error_Message_Label.Text = "Entered Quantity is greater than Available Quantity";
                     HideWarningMessage();
                 }
                 else
@@ -153,12 +163,12 @@ namespace AOneStoreBillingSystem
         {
             if (BilledProducts_GridView.Rows.Count > 0)
             {
-                Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = false;
+                Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = false;               
                 Error_Message_Label.Text = "UPDATING CURRENT BILL";
                 //PrintReceipt();
                 cashier.QuantityReductionForSelectedProduct(Bill_Number_textBox.Text, Convert.ToDecimal(TotalBill_Amount_textBox.Text), totalCostPrice, totalProfit, BilledProducts_GridView);
                 Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = true;
-                Error_Message_Label.Text = TotalBill_Amount_textBox.Text = string.Empty;
+                TotalBill_Amount_textBox.Text = string.Empty;
                 totalCostPrice = totalProfit = 0;
                 selectedProductForBill = null;
                 BilledProducts_GridView.Rows.Clear();
@@ -166,6 +176,7 @@ namespace AOneStoreBillingSystem
                 backgroundWorker.DoWork += GetCurrentBillNumber;
                 backgroundWorker.RunWorkerCompleted += WriteCurrentBillNumberTextBox;
                 StartToGetCurrentBillNumber();
+                HideWarningMessage();
             }
             else
             {
@@ -301,6 +312,7 @@ namespace AOneStoreBillingSystem
             Price_textBox.Text = string.Empty;
             MRP_textBox.Text = string.Empty;
             Quantity_textBox.Text = string.Empty;
+            QuantityAvailableTextBox.Text = string.Empty;
             Error_Message_Label.Text = string.Empty;
         }
 
@@ -310,6 +322,7 @@ namespace AOneStoreBillingSystem
             if (e.KeyCode == Keys.F5)
             {
                 Print_Bill_Btn_Click(null, null);
+                Product_Search_Textbox.Focus();
             }
             else if(e.KeyCode == Keys.Enter)
             {
@@ -360,8 +373,12 @@ namespace AOneStoreBillingSystem
             if (Product_Search_ListBox.SelectedIndex != -1)
             {
                 Product_Search_Textbox.Text = ProductName_textBox.Text = Product_Search_ListBox.Items[Product_Search_ListBox.SelectedIndex].ToString();
-                availableProducts.Where(obj => obj.ProductName.Equals(Product_Search_Textbox.Text)).ToList().ForEach(obj => { selectedProductForBill = obj; ProductId_textBox.Text = obj.ProductId.ToString(); Price_textBox.Text = obj.SellingPrice.ToString("#,##0.00"); MRP_textBox.Text = obj.MRP.ToString("#,##0.00"); });
+                availableProducts.Where(obj => obj.ProductName.Equals(Product_Search_Textbox.Text)).ToList().ForEach(obj => { selectedProductForBill = obj; ProductId_textBox.Text = obj.ProductId.ToString(); QuantityAvailableTextBox.Text = obj.QuantityAvailable.ToString(); Price_textBox.Text = obj.SellingPrice.ToString("#,##0.00"); MRP_textBox.Text = obj.MRP.ToString("#,##0.00"); });
                 HideResults();
+            }
+            if (ProductId_textBox.Text != string.Empty)
+            {
+                Quantity_textBox.Focus();
             }
         }
 

@@ -14,11 +14,13 @@ namespace AOneStoreBillingSystem
         private BackgroundWorker backgroundWorkerForStock;
         private string selectedProductId;
         private StockDetail selectedProductDetails;
+        private List<StockDetail> allProduct;
         public SearchProduct()
         {
             admin = new Admin();
             InitializeComponent();
             ProductIDorNameTextBox.Focus();
+            allProduct = admin.GetAllStockDetails();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace AOneStoreBillingSystem
             List<StockDetail> allProduct = admin.GetAllStockDetails();
             if (allProduct.Count > 0)
             {
-                if (ProductIDorNameLabel.Text != string.Empty)
+                if (ProductIDorNameTextBox.Text != string.Empty)
                 {
                     foreach (StockDetail searchedProd in allProduct)
                     {
@@ -38,16 +40,11 @@ namespace AOneStoreBillingSystem
                         }
                     }
                 }
-                ProductIDorNameTextBox.Text = string.Empty;
             }
         }
 
         private void SearchProduct_KeyUp(object sender, KeyEventArgs e)
         {
-           if (e.KeyCode == Keys.Enter && ProductIDorNameTextBox.Focused == true)
-            {
-                SearchButton_Click(null, null);
-            }
             if (e.KeyCode == Keys.Enter && AllProduct_ListView.Focused == true)
             {
                 AllProduct_ListView_Click(null, null);
@@ -105,6 +102,7 @@ namespace AOneStoreBillingSystem
 
         private void UpdateProduct_button_Click(object sender, EventArgs e)
         {
+            ProductIDorNameTextBox.Focus();
             AllProduct_ListView.Items.Clear();
             if (!string.IsNullOrEmpty(BuyingPrice_textBox.Text) && !string.IsNullOrEmpty(SellingPrice_textBox.Text) && !string.IsNullOrEmpty(MRP_textBox.Text) && !string.IsNullOrEmpty(Quantity_textBox.Text))
             {
@@ -136,6 +134,11 @@ namespace AOneStoreBillingSystem
                 selectedProductDetails.SellingPrice = Convert.ToDecimal(SellingPrice_textBox.Text);
                 selectedProductDetails.MRP = Convert.ToDecimal(MRP_textBox.Text);
                 selectedProductDetails.QuantityAvailable = int.Parse(Quantity_textBox.Text);
+                allProduct = admin.GetAllStockDetails();
+            }
+            else
+            {
+                MessageBox.Show("Product update Failed!");
             }
         }
 
@@ -150,6 +153,26 @@ namespace AOneStoreBillingSystem
         {
             e.Cancel = true;
             e.NewWidth = AllProduct_ListView.Columns[e.ColumnIndex].Width;
+        }
+
+        private void Product_Search_Textbox_TextChanged(object sender, EventArgs e)
+        {
+            AllProduct_ListView.Items.Clear();
+            int i = 1;
+            if (allProduct.Count > 0)
+            {
+                if (ProductIDorNameTextBox.Text != string.Empty)
+                {
+                    foreach (StockDetail searchedProd in allProduct)
+                    {
+                        if (searchedProd.ProductName.ToLower().Contains(ProductIDorNameTextBox.Text.ToLower()) || searchedProd.ProductDescription.ToLower().Contains(ProductIDorNameTextBox.Text.ToLower()) || searchedProd.ProductId.ToString().Contains(ProductIDorNameTextBox.Text))
+                        {
+                            AllProduct_ListView.Items.Add(new ListViewItem(new string[] { (i++).ToString(), searchedProd.ProductId.ToString(), searchedProd.ProductName.ToString(), searchedProd.BuyingPrice.ToString(), searchedProd.SellingPrice.ToString(), searchedProd.MRP.ToString(), searchedProd.QuantityAvailable.ToString() }));
+                        }
+                    }
+                }
+                //ProductIDorNameTextBox.Text = string.Empty;
+            }
         }
     }
 }

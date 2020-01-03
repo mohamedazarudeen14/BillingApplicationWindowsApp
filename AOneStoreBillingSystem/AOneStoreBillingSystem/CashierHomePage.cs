@@ -73,5 +73,16 @@ namespace AOneStoreBillingSystem
                 return myCp;
             }
         }
+
+        private void Product_Information_MenuStrip_Click(object sender, EventArgs e)
+        {
+            CloseOpenedChildForm();
+            EnableDisbaledMenuStripItem();
+            SearchProduct searchProduct = new SearchProduct();
+            searchProduct.MdiParent = this;
+            searchProduct.StartPosition = FormStartPosition.CenterScreen;
+            searchProduct.Show();
+            Search_Product_MenuStrip.Enabled = false;
+        }
     }
 }

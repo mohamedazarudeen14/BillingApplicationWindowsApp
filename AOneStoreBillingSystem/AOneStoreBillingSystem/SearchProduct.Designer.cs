@@ -67,6 +67,7 @@
             this.ProductIDorNameTextBox.Name = "ProductIDorNameTextBox";
             this.ProductIDorNameTextBox.Size = new System.Drawing.Size(166, 20);
             this.ProductIDorNameTextBox.TabIndex = 1;
+            this.ProductIDorNameTextBox.TextChanged += new System.EventHandler(this.Product_Search_Textbox_TextChanged);
             // 
             // SearchButton
             // 

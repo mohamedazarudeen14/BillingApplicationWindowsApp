@@ -30,7 +30,7 @@
         {
             this.Cashier_HomePage_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.Bill_MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.Product_Information_MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.Search_Product_MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.LogOut_Cashier_MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.Cashier_HomePage_MenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -39,11 +39,11 @@
             // 
             this.Cashier_HomePage_MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Bill_MenuStrip,
-            this.Product_Information_MenuStrip,
+            this.Search_Product_MenuStrip,
             this.LogOut_Cashier_MenuStrip});
             this.Cashier_HomePage_MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.Cashier_HomePage_MenuStrip.Name = "Cashier_HomePage_MenuStrip";
-            this.Cashier_HomePage_MenuStrip.Size = new System.Drawing.Size(1350, 29);
+            this.Cashier_HomePage_MenuStrip.Size = new System.Drawing.Size(1354, 29);
             this.Cashier_HomePage_MenuStrip.TabIndex = 7;
             this.Cashier_HomePage_MenuStrip.Text = "menuStrip1";
             // 
@@ -55,12 +55,13 @@
             this.Bill_MenuStrip.Text = "Bill";
             this.Bill_MenuStrip.Click += new System.EventHandler(this.Bill_MenuStrip_Click);
             // 
-            // Product_Information_MenuStrip
+            // Search_Product_MenuStrip
             // 
-            this.Product_Information_MenuStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Product_Information_MenuStrip.Name = "Product_Information_MenuStrip";
-            this.Product_Information_MenuStrip.Size = new System.Drawing.Size(162, 25);
-            this.Product_Information_MenuStrip.Text = "Product Information";
+            this.Search_Product_MenuStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Search_Product_MenuStrip.Name = "Search_Product_MenuStrip";
+            this.Search_Product_MenuStrip.Size = new System.Drawing.Size(127, 25);
+            this.Search_Product_MenuStrip.Text = "Search Product";
+            this.Search_Product_MenuStrip.Click += new System.EventHandler(this.Product_Information_MenuStrip_Click);
             // 
             // LogOut_Cashier_MenuStrip
             // 
@@ -95,7 +96,7 @@
 
         private System.Windows.Forms.MenuStrip Cashier_HomePage_MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem Bill_MenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem Product_Information_MenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem Search_Product_MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem LogOut_Cashier_MenuStrip;
     }
 }
