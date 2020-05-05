@@ -23,7 +23,6 @@ namespace AOneStoreBillingSystem
             InitializeComponent();
             ProductIDorNameTextBox.Focus();
             allProduct = admin.GetAllStockDetails();
-            UpdateProduct_button.Enabled = isAdmin;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -54,7 +53,7 @@ namespace AOneStoreBillingSystem
             }
             if (e.KeyCode == Keys.Enter)
             {
-                if(isAdmin && BuyingPrice_textBox.Focused == true || SellingPrice_textBox.Focused == true || MRP_textBox.Focused == true || Quantity_textBox.Focused == true)
+                if(BuyingPrice_textBox.Focused == true || SellingPrice_textBox.Focused == true || MRP_textBox.Focused == true || Quantity_textBox.Focused == true)
                 {
                     UpdateProduct_button_Click(null, null);
                 }
@@ -64,7 +63,7 @@ namespace AOneStoreBillingSystem
         private void AllProduct_ListView_Click(object sender, EventArgs e)
         {
             BuyingPrice_textBox.Focus();
-            UpdateProduct_button.Enabled = true;
+            UpdateProduct_button.Enabled = isAdmin;
             var selectedProduct = AllProduct_ListView.SelectedItems;
             selectedProductId = selectedProduct[0].SubItems[1].Text;
 
