@@ -178,7 +178,7 @@ namespace AOneStoreBillingSystem
             selectedProductSellingPrice = SellingPrice_textBox.Text = selectedProductDetails.SellingPrice.ToString();
             selectedProductMRPPrice = MRP_textBox.Text = selectedProductDetails.MRP.ToString();
             Description_textbox.Text = selectedProductDetails.ProductDescription;
-            selectedProductQty = SellingPrice_textBox.Text = selectedProductDetails.QuantityAvailable.ToString();
+            selectedProductQty = Quantity_textBox.Text = selectedProductDetails.QuantityAvailable.ToString();
         }
 
         private void UpdateProduct_button_Click(object sender, EventArgs e)
@@ -277,6 +277,8 @@ namespace AOneStoreBillingSystem
             BuyingPrice_textBox.Text = string.Empty;
             Description_textbox.Text = string.Empty;
             SellingPrice_textBox.Text = string.Empty;
+            MRP_textBox.Text = string.Empty;
+            Quantity_textBox.Text = string.Empty;
         }
     }
 }

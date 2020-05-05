@@ -38,23 +38,22 @@ namespace BusinessLayer
 
         public void QuantityReductionForSelectedProduct(string currentBillNumber, decimal totalBillAmount, decimal totalCostPrice, decimal totalProfit, DataGridView purchasedProductsFromGridView)
         {
-            List<SalesDetail> purchasedProducts = new List<SalesDetail>();
             Dictionary<long, long> purchased = new Dictionary<long, long>();
+            SalesDetail salesDetail = new SalesDetail();
             if (purchasedProductsFromGridView.Rows.Count > 0)
             {
                 for (int i = 0; i < purchasedProductsFromGridView.Rows.Count; i++)
                 {
-                    SalesDetail salesDetail = new SalesDetail();
-                    salesDetail.BillNos = Convert.ToInt64(currentBillNumber);
                     purchased.Add(Convert.ToInt64(purchasedProductsFromGridView.Rows[i].Cells[1].Value), Convert.ToInt64(purchasedProductsFromGridView.Rows[i].Cells[3].Value));
-                    salesDetail.TotalBillAmount = totalBillAmount;
-                    salesDetail.TotalCostPrice = totalCostPrice;
-                    salesDetail.ProfitAmount = totalProfit;
-                    salesDetail.SalesDate = DateTime.Today;
-                    purchasedProducts.Add(salesDetail);
                 }
+                               
+                salesDetail.BillNos = Convert.ToInt64(currentBillNumber);
+                salesDetail.TotalBillAmount = totalBillAmount;
+                salesDetail.TotalCostPrice = totalCostPrice;
+                salesDetail.ProfitAmount = totalProfit;
+                salesDetail.SalesDate = DateTime.Today;
             }
-            Task.Run(() => cashierDataAccess.AddSalesDetails(purchasedProducts));
+            Task.Run(() => cashierDataAccess.AddSalesDetails(salesDetail));
             Task.Run(() => cashierDataAccess.QuantityReduction(purchased));
         }
         

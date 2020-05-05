@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminHomePage));
             this.AdminHomePage_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.AddCashier_MenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +96,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 733);
             this.ControlBox = false;
             this.Controls.Add(this.AdminHomePage_MenuStrip);

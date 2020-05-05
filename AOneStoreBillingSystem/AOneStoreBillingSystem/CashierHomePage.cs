@@ -78,7 +78,7 @@ namespace AOneStoreBillingSystem
         {
             CloseOpenedChildForm();
             EnableDisbaledMenuStripItem();
-            SearchProduct searchProduct = new SearchProduct();
+            SearchProduct searchProduct = new SearchProduct(false);
             searchProduct.MdiParent = this;
             searchProduct.StartPosition = FormStartPosition.CenterScreen;
             searchProduct.Show();

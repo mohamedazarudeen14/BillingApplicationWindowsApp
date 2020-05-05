@@ -10,17 +10,20 @@ namespace AOneStoreBillingSystem
 {
     public partial class SearchProduct : Form
     {
+        private bool isAdmin;
         private Admin admin;
         private BackgroundWorker backgroundWorkerForStock;
         private string selectedProductId;
         private StockDetail selectedProductDetails;
         private List<StockDetail> allProduct;
-        public SearchProduct()
+        public SearchProduct(bool isAdmin = true)
         {
+            this.isAdmin = isAdmin;
             admin = new Admin();
             InitializeComponent();
             ProductIDorNameTextBox.Focus();
             allProduct = admin.GetAllStockDetails();
+            UpdateProduct_button.Enabled = isAdmin;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -51,7 +54,7 @@ namespace AOneStoreBillingSystem
             }
             if (e.KeyCode == Keys.Enter)
             {
-                if(BuyingPrice_textBox.Focused == true || SellingPrice_textBox.Focused == true || MRP_textBox.Focused == true || Quantity_textBox.Focused == true)
+                if(isAdmin && BuyingPrice_textBox.Focused == true || SellingPrice_textBox.Focused == true || MRP_textBox.Focused == true || Quantity_textBox.Focused == true)
                 {
                     UpdateProduct_button_Click(null, null);
                 }

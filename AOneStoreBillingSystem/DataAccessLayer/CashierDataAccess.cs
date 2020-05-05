@@ -61,11 +61,11 @@ namespace DataAccessLayer
             }
         }
 
-        public void AddSalesDetails(List<SalesDetail> billedProducts)
+        public void AddSalesDetails(SalesDetail billedProducts)
         {
             using (Store_BillingEntities billedProductDetails = new Store_BillingEntities())
             {
-                billedProductDetails.SalesDetails.AddRange(billedProducts);
+                billedProductDetails.SalesDetails.Add(billedProducts);
                 billedProductDetails.SaveChanges();
             }
         }

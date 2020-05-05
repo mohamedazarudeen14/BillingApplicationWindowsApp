@@ -141,3 +141,4 @@ C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AO
 C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.exe
 C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.pdb
 C:\myFiles\BillingApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.SearchProduct.resources
+C:\Users\MOHAMED AZARUDEEN\Documents\GitHub\BillingApplicationWindowsApp\AOneStoreBillingSystem\AOneStoreBillingSystem\obj\Debug\AOneStoreBillingSystem.SearchProduct.resources
