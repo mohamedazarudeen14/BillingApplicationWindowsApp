@@ -3,7 +3,6 @@ using CommonClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace AOneStoreBillingSystem
@@ -83,7 +82,7 @@ namespace AOneStoreBillingSystem
 
         private void GetSelecetdProductDetails(object sender, DoWorkEventArgs e)
         {
-            StockDetail selectedCashierDetails = admin.GetSelectedProductDetails(int.Parse(selectedProductId));
+            StockDetail selectedCashierDetails = admin.GetSelectedProductDetails(double.Parse(selectedProductId));
             e.Result = selectedCashierDetails;
         }
 
@@ -128,7 +127,7 @@ namespace AOneStoreBillingSystem
 
         private void UpdateProductDetails(object sender, DoWorkEventArgs e)
         {
-            e.Result = admin.UpdateProductDetails(int.Parse(selectedProductDetails.ProductId.ToString()), Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), int.Parse(Quantity_textBox.Text));
+            e.Result = admin.UpdateProductDetails(double.Parse(selectedProductDetails.ProductId.ToString()), Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), int.Parse(Quantity_textBox.Text));
             if ((bool)e.Result)
             {
                 MessageBox.Show("Update Successfully");

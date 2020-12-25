@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Store_BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Store_BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -42,7 +42,7 @@
         </EntityType>
         <EntityType Name="StockDetails">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ProductId" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="bigint" Nullable="false" />
@@ -52,6 +52,7 @@
           <Property Name="MRP" Type="money" Nullable="false" />
           <Property Name="SellingPrice" Type="money" Nullable="false" />
           <Property Name="ProductDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductNameTamil" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="Store_BillingModelStoreContainer">
           <EntitySet Name="AdminDetails" EntityType="Self.AdminDetails" Schema="dbo" store:Type="Tables" />
@@ -106,7 +107,7 @@
         </EntityType>
         <EntityType Name="StockDetail">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ProductId" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int64" Nullable="false" />
@@ -116,6 +117,7 @@
           <Property Name="MRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="SellingPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="ProductDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductNameTamil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -164,6 +166,7 @@
           <EntitySetMapping Name="StockDetails">
             <EntityTypeMapping TypeName="Store_BillingModel.StockDetail">
               <MappingFragment StoreEntitySet="StockDetails">
+                <ScalarProperty Name="ProductNameTamil" ColumnName="ProductNameTamil" />
                 <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
                 <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
                 <ScalarProperty Name="MRP" ColumnName="MRP" />

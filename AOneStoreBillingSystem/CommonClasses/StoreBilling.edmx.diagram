@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="Store_BillingModel.AdminDetail" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="Store_BillingModel.CashierDetail" Width="1.5" PointX="2.625" PointY="0.75" />
         <EntityTypeShape EntityType="Store_BillingModel.SalesDetail" Width="1.5" PointX="4.75" PointY="0.875" />
-        <EntityTypeShape EntityType="Store_BillingModel.StockDetail" Width="1.5" PointX="7" PointY="0.625" />
+        <EntityTypeShape EntityType="Store_BillingModel.StockDetail" Width="1.5" PointX="6.875" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

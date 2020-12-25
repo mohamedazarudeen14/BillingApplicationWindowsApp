@@ -42,6 +42,7 @@
     <EntitySetMapping Name="StockDetails">
       <EntityTypeMapping TypeName="Store_BillingModel.StockDetail">
         <MappingFragment StoreEntitySet="StockDetails">
+          <ScalarProperty Name="ProductNameTamil" ColumnName="ProductNameTamil" />
           <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
           <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
           <ScalarProperty Name="MRP" ColumnName="MRP" />

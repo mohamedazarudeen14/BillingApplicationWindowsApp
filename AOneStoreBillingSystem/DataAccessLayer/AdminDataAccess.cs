@@ -156,7 +156,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool UpdateProductDetails(int productId, decimal productBuyingPrice, decimal productSellingPrice, decimal productMRP, int availableQty)
+        public bool UpdateProductDetails(double productId, decimal productBuyingPrice, decimal productSellingPrice, decimal productMRP, int availableQty)
         {
             bool isProductDetailsUpdated = false;
             using (Store_BillingEntities updateProductDetails = new Store_BillingEntities())

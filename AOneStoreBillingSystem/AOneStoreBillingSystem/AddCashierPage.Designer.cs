@@ -88,7 +88,7 @@
             this.CashierPassword_textBox.Location = new System.Drawing.Point(141, 212);
             this.CashierPassword_textBox.Name = "CashierPassword_textBox";
             this.CashierPassword_textBox.Size = new System.Drawing.Size(235, 20);
-            this.CashierPassword_textBox.TabIndex = 5;
+            this.CashierPassword_textBox.TabIndex = 4;
             this.CashierPassword_textBox.TextChanged += new System.EventHandler(this.CashierPassword_textBox_TextChanged);
             // 
             // CahierId_label
@@ -133,7 +133,7 @@
             this.AddCashier_button.Location = new System.Drawing.Point(39, 364);
             this.AddCashier_button.Name = "AddCashier_button";
             this.AddCashier_button.Size = new System.Drawing.Size(92, 29);
-            this.AddCashier_button.TabIndex = 12;
+            this.AddCashier_button.TabIndex = 6;
             this.AddCashier_button.Text = "Add New";
             this.AddCashier_button.UseVisualStyleBackColor = true;
             this.AddCashier_button.Click += new System.EventHandler(this.AddCashier_button_Click);
@@ -145,7 +145,7 @@
             this.UpdateCashier_button.Location = new System.Drawing.Point(160, 364);
             this.UpdateCashier_button.Name = "UpdateCashier_button";
             this.UpdateCashier_button.Size = new System.Drawing.Size(92, 29);
-            this.UpdateCashier_button.TabIndex = 13;
+            this.UpdateCashier_button.TabIndex = 7;
             this.UpdateCashier_button.Text = "Update";
             this.UpdateCashier_button.UseVisualStyleBackColor = true;
             this.UpdateCashier_button.Click += new System.EventHandler(this.UpdateCashier_button_Click);
@@ -157,7 +157,7 @@
             this.DeleteCashier_button.Location = new System.Drawing.Point(284, 364);
             this.DeleteCashier_button.Name = "DeleteCashier_button";
             this.DeleteCashier_button.Size = new System.Drawing.Size(92, 29);
-            this.DeleteCashier_button.TabIndex = 14;
+            this.DeleteCashier_button.TabIndex = 8;
             this.DeleteCashier_button.Text = "Delete";
             this.DeleteCashier_button.UseVisualStyleBackColor = true;
             this.DeleteCashier_button.Click += new System.EventHandler(this.DeleteCashier_button_Click);
@@ -182,7 +182,7 @@
             this.AllCashier_ListView.Location = new System.Drawing.Point(432, 28);
             this.AllCashier_ListView.Name = "AllCashier_ListView";
             this.AllCashier_ListView.Size = new System.Drawing.Size(525, 423);
-            this.AllCashier_ListView.TabIndex = 15;
+            this.AllCashier_ListView.TabIndex = 10;
             this.AllCashier_ListView.UseCompatibleStateImageBehavior = false;
             this.AllCashier_ListView.View = System.Windows.Forms.View.Details;
             this.AllCashier_ListView.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.AllCashier_ListView_ColumnWidthChanging);
@@ -225,7 +225,7 @@
             this.CashierConformPassword_textBox.Location = new System.Drawing.Point(141, 261);
             this.CashierConformPassword_textBox.Name = "CashierConformPassword_textBox";
             this.CashierConformPassword_textBox.Size = new System.Drawing.Size(235, 20);
-            this.CashierConformPassword_textBox.TabIndex = 17;
+            this.CashierConformPassword_textBox.TabIndex = 5;
             // 
             // ClearAllFields_button
             // 
@@ -233,7 +233,7 @@
             this.ClearAllFields_button.Location = new System.Drawing.Point(39, 429);
             this.ClearAllFields_button.Name = "ClearAllFields_button";
             this.ClearAllFields_button.Size = new System.Drawing.Size(337, 32);
-            this.ClearAllFields_button.TabIndex = 19;
+            this.ClearAllFields_button.TabIndex = 9;
             this.ClearAllFields_button.Text = "Clear All Fields";
             this.ClearAllFields_button.UseVisualStyleBackColor = true;
             this.ClearAllFields_button.Click += new System.EventHandler(this.ClearAllFields_button_Click);

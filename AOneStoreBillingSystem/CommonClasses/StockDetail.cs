@@ -22,5 +22,6 @@ namespace CommonClasses
         public decimal MRP { get; set; }
         public decimal SellingPrice { get; set; }
         public string ProductDescription { get; set; }
+        public string ProductNameTamil { get; set; }
     }
 }

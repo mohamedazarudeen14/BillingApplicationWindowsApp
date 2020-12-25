@@ -81,11 +81,11 @@ namespace BusinessLayer
             Task.Run(() => accessDB.AddLastLoggedOutTimeForLoggedAdmin(adminId));
         }
 
-        public bool SaveProductDetails(int id, string name, decimal buyingPrice, decimal sellingPrice, decimal mrp, string description, int quantity)
+        public bool SaveProductDetails(double id, string name, decimal buyingPrice, decimal sellingPrice, decimal mrp, string description, int quantity)
         {
             StockDetail newStock = new StockDetail
             {
-                ProductId = id,
+                ProductId = Convert.ToInt64(id),
                 ProductName = name,
                 QuantityAvailable = quantity,
                 BuyingPrice = buyingPrice,
@@ -101,23 +101,23 @@ namespace BusinessLayer
             return accessDB.GetAllStock();
         }
 
-        public StockDetail GetSelectedProductDetails(int selectedProductId)
+        public StockDetail GetSelectedProductDetails(double selectedProductId)
         {
             List<StockDetail> allProuctdetails = accessDB.GetAllStock();
 
-            return allProuctdetails.SingleOrDefault(obj => obj.ProductId.Equals(selectedProductId));
+            return allProuctdetails.SingleOrDefault(obj => obj.ProductId == selectedProductId);
         }
 
-        public bool UpdateProductDetails(int productId, decimal productBuyingPrice, decimal productSellingPrice, decimal productMRP, int quantityAvailable)
+        public bool UpdateProductDetails(double productId, decimal productBuyingPrice, decimal productSellingPrice, decimal productMRP, int quantityAvailable)
         {
             return accessDB.UpdateProductDetails(productId, productBuyingPrice, productSellingPrice, productMRP, quantityAvailable);
         }
 
-        public bool IsProductIdAvailable(int productId)
+        public bool IsProductIdAvailable(double productId)
         {
             List<StockDetail> allProuctdetails = accessDB.GetAllStock();
 
-            return allProuctdetails.Any(obj => obj.ProductId.Equals(productId));
+            return allProuctdetails.Any(obj => obj.ProductId == productId);
         }
         
         public List<SalesDetail> GetSalesDetailsForSelectedDate(DateTime fromDate, DateTime toDate)

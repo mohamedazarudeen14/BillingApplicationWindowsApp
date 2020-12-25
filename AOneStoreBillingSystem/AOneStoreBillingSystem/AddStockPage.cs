@@ -34,21 +34,21 @@ namespace AOneStoreBillingSystem
         private void AddProduct_button_Click(object sender, EventArgs e)
         {
             bool isProductDetailsSaved = false;
-            int number;
+            double number;
             decimal productPrice;
             if (!string.IsNullOrWhiteSpace(ProductId_textBox.Text) && !string.IsNullOrWhiteSpace(ProductName_textBox.Text) &&
                 !string.IsNullOrWhiteSpace(Description_textbox.Text) && !string.IsNullOrWhiteSpace(BuyingPrice_textBox.Text) && !string.IsNullOrWhiteSpace(SellingPrice_textBox.Text)
                 && !string.IsNullOrWhiteSpace(MRP_textBox.Text) && !string.IsNullOrWhiteSpace(Quantity_textBox.Text))
             {
-                if (!int.TryParse(ProductId_textBox.Text, out number))
+                if (!double.TryParse(ProductId_textBox.Text, out number))
                 {
                     MessageBox.Show(Constants.ENTER_VALID_PRODUCT_ID);
                 }
-                else if (int.TryParse(ProductName_textBox.Text, out number))
+                else if (double.TryParse(ProductName_textBox.Text, out number))
                 {
                     MessageBox.Show(Constants.ENTER_VALID_PRODUCT_NAME);
                 }
-                else if (int.TryParse(Description_textbox.Text, out number))
+                else if (double.TryParse(Description_textbox.Text, out number))
                 {
                     MessageBox.Show(Constants.ENTER_VALID_DESCRIPTON_FOR_PRODUCT);
                 }
@@ -64,24 +64,22 @@ namespace AOneStoreBillingSystem
                 {
                     MessageBox.Show(Constants.ENTER_VALID_MRPPRICE_FOR_PRODUCT);
                 }
-                else if(!int.TryParse(Quantity_textBox.Text, out number))
+                else if(!double.TryParse(Quantity_textBox.Text, out number))
                 {
                     MessageBox.Show(Constants.ENTER_VALID_QUANTITY_NUMBER);
                 }
                 else
                 {
-                    bool isProductIdUsedAlready = admin.IsProductIdAvailable(Convert.ToInt32(ProductId_textBox.Text));
+                    bool isProductIdUsedAlready = admin.IsProductIdAvailable(Convert.ToDouble(ProductId_textBox.Text));
 
                     if(!isProductIdUsedAlready)
                     {
-                        isProductDetailsSaved = admin.SaveProductDetails(Convert.ToInt32(ProductId_textBox.Text), ProductName_textBox.Text, Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), Description_textbox.Text, Convert.ToInt32(Quantity_textBox.Text));
+                        isProductDetailsSaved = admin.SaveProductDetails(Convert.ToDouble(ProductId_textBox.Text), ProductName_textBox.Text, Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), Description_textbox.Text, Convert.ToInt32(Quantity_textBox.Text));
                     }
                     else
                     {
                         MessageBox.Show(Constants.PRODUCT_ID_AVAILABLE_MESSAGE);
-                    }
-
-                   
+                    }                  
                 }
             }
             else
@@ -165,7 +163,7 @@ namespace AOneStoreBillingSystem
 
         private void GetSelecetdProductDetails(object sender, DoWorkEventArgs e)
         {
-            StockDetail selectedCashierDetails = admin.GetSelectedProductDetails(int.Parse(selectedProductId));
+            StockDetail selectedCashierDetails = admin.GetSelectedProductDetails(double.Parse(selectedProductId));
             e.Result = selectedCashierDetails;
         }
 
@@ -204,9 +202,15 @@ namespace AOneStoreBillingSystem
             }
         }
 
+        private void AllProduct_ListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.Cancel = true;
+            e.NewWidth = AllProduct_ListView.Columns[e.ColumnIndex].Width;
+        }
+
         private void UpdateProductDetails(object sender, DoWorkEventArgs e)
         {
-            e.Result = admin.UpdateProductDetails(int.Parse(ProductId_textBox.Text), Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), int.Parse(Quantity_textBox.Text));
+            e.Result = admin.UpdateProductDetails(double.Parse(ProductId_textBox.Text), Convert.ToDecimal(BuyingPrice_textBox.Text), Convert.ToDecimal(SellingPrice_textBox.Text), Convert.ToDecimal(MRP_textBox.Text), int.Parse(Quantity_textBox.Text));
         }
 
         private void UpdateProcductDetailsCompleted(object sender, RunWorkerCompletedEventArgs e)

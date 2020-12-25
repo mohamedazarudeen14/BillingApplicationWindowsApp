@@ -43,7 +43,7 @@
   </EntityType>
   <EntityType Name="StockDetail">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="ProductId" />
     </Key>
     <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductId" Type="Int64" Nullable="false" />
@@ -53,5 +53,6 @@
     <Property Name="MRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="SellingPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="ProductDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductNameTamil" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

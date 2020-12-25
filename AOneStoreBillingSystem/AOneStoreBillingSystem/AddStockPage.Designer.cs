@@ -69,7 +69,7 @@
             // ProductName_label
             // 
             this.ProductName_label.AutoSize = true;
-            this.ProductName_label.Location = new System.Drawing.Point(28, 134);
+            this.ProductName_label.Location = new System.Drawing.Point(31, 134);
             this.ProductName_label.Name = "ProductName_label";
             this.ProductName_label.Size = new System.Drawing.Size(75, 13);
             this.ProductName_label.TabIndex = 36;
@@ -120,7 +120,7 @@
             this.AddProduct_button.Location = new System.Drawing.Point(31, 425);
             this.AddProduct_button.Name = "AddProduct_button";
             this.AddProduct_button.Size = new System.Drawing.Size(92, 29);
-            this.AddProduct_button.TabIndex = 43;
+            this.AddProduct_button.TabIndex = 45;
             this.AddProduct_button.Text = "Add New";
             this.AddProduct_button.UseVisualStyleBackColor = true;
             this.AddProduct_button.Click += new System.EventHandler(this.AddProduct_button_Click);
@@ -131,7 +131,7 @@
             this.UpdateProduct_button.Location = new System.Drawing.Point(152, 425);
             this.UpdateProduct_button.Name = "UpdateProduct_button";
             this.UpdateProduct_button.Size = new System.Drawing.Size(92, 29);
-            this.UpdateProduct_button.TabIndex = 44;
+            this.UpdateProduct_button.TabIndex = 46;
             this.UpdateProduct_button.Text = "Update";
             this.UpdateProduct_button.UseVisualStyleBackColor = true;
             this.UpdateProduct_button.Click += new System.EventHandler(this.UpdateProduct_button_Click);
@@ -142,7 +142,7 @@
             this.DeleteProduct_button.Location = new System.Drawing.Point(276, 425);
             this.DeleteProduct_button.Name = "DeleteProduct_button";
             this.DeleteProduct_button.Size = new System.Drawing.Size(92, 29);
-            this.DeleteProduct_button.TabIndex = 45;
+            this.DeleteProduct_button.TabIndex = 47;
             this.DeleteProduct_button.Text = "Delete";
             this.DeleteProduct_button.UseVisualStyleBackColor = true;
             this.DeleteProduct_button.Click += new System.EventHandler(this.DeleteProduct_button_Click);
@@ -152,7 +152,7 @@
             this.ClearAllFields.Location = new System.Drawing.Point(31, 481);
             this.ClearAllFields.Name = "ClearAllFields";
             this.ClearAllFields.Size = new System.Drawing.Size(337, 32);
-            this.ClearAllFields.TabIndex = 46;
+            this.ClearAllFields.TabIndex = 48;
             this.ClearAllFields.Text = "Clear All Fields";
             this.ClearAllFields.UseVisualStyleBackColor = true;
             this.ClearAllFields.Click += new System.EventHandler(this.ClearAllFields_button_Click);
@@ -179,9 +179,10 @@
             this.AllProduct_ListView.Location = new System.Drawing.Point(431, 40);
             this.AllProduct_ListView.Name = "AllProduct_ListView";
             this.AllProduct_ListView.Size = new System.Drawing.Size(700, 473);
-            this.AllProduct_ListView.TabIndex = 47;
+            this.AllProduct_ListView.TabIndex = 49;
             this.AllProduct_ListView.UseCompatibleStateImageBehavior = false;
             this.AllProduct_ListView.View = System.Windows.Forms.View.Details;
+            this.AllProduct_ListView.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.AllProduct_ListView_ColumnWidthChanging);
             this.AllProduct_ListView.Click += new System.EventHandler(this.AllProduct_ListView_Click);
             // 
             // columnHeader1
@@ -271,7 +272,7 @@
             this.MRP_textBox.Location = new System.Drawing.Point(152, 322);
             this.MRP_textBox.Name = "MRP_textBox";
             this.MRP_textBox.Size = new System.Drawing.Size(216, 20);
-            this.MRP_textBox.TabIndex = 49;
+            this.MRP_textBox.TabIndex = 43;
             // 
             // Quantity_label
             // 
@@ -287,7 +288,7 @@
             this.Quantity_textBox.Location = new System.Drawing.Point(152, 374);
             this.Quantity_textBox.Name = "Quantity_textBox";
             this.Quantity_textBox.Size = new System.Drawing.Size(216, 20);
-            this.Quantity_textBox.TabIndex = 51;
+            this.Quantity_textBox.TabIndex = 44;
             // 
             // AddStockPage
             // 

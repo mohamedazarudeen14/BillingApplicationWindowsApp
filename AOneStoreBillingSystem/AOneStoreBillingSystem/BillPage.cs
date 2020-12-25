@@ -23,6 +23,7 @@ namespace AOneStoreBillingSystem
         private decimal totalCostPrice;
         private decimal totalProfit;
         private StockDetail selectedProductForBill;
+        private PrintReceipt printReceipt;
 
         public BillPage()
         {
@@ -82,6 +83,7 @@ namespace AOneStoreBillingSystem
 
         private void Add_button_Click(object sender, EventArgs e)
         {
+            Product_Search_Textbox.Focus();
             int validationCheck;
             if (DisableSelectedContentInGridview(true))
             {
@@ -142,7 +144,6 @@ namespace AOneStoreBillingSystem
                     {
                         BilledProducts_GridView.Rows[0].Selected = false;
                     }
-                    Product_Search_Textbox.Focus();
                 }
             }     
         }
@@ -161,11 +162,13 @@ namespace AOneStoreBillingSystem
 
         private void Print_Bill_Btn_Click(object sender, EventArgs e)
         {
+            Product_Search_Textbox.Focus();
             if (BilledProducts_GridView.Rows.Count > 0)
             {
                 Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = false;               
                 Error_Message_Label.Text = "UPDATING CURRENT BILL";
-                //PrintReceipt();
+                printReceipt = new PrintReceipt(BilledProducts_GridView, TotalBill_Amount_textBox.Text, Bill_Number_textBox.Text);
+                printReceipt.DisplayDialog();
                 cashier.QuantityReductionForSelectedProduct(Bill_Number_textBox.Text, Convert.ToDecimal(TotalBill_Amount_textBox.Text), totalCostPrice, totalProfit, BilledProducts_GridView);
                 Print_Bill_Btn.Enabled = Add_Product_Btn.Enabled = Remove_Btn.Enabled = Product_Search_Textbox.Enabled = Quantity_textBox.Enabled = true;
                 TotalBill_Amount_textBox.Text = string.Empty;
@@ -248,11 +251,14 @@ namespace AOneStoreBillingSystem
         private void BilledProducts_GridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var selectedBilledProduct = BilledProducts_GridView.SelectedCells;
-            ProductId_textBox.Text = selectedBilledProduct[1].Value.ToString();
-            ProductName_textBox.Text = selectedBilledProduct[2].Value.ToString();
-            Quantity_textBox.Text = selectedBilledProduct[3].Value.ToString();
-            Price_textBox.Text = selectedBilledProduct[4].Value.ToString();
-            MRP_textBox.Text = selectedBilledProduct[5].Value.ToString();
+            if (selectedBilledProduct != null)
+            {
+                ProductId_textBox.Text = selectedBilledProduct[1].Value.ToString();
+                ProductName_textBox.Text = selectedBilledProduct[2].Value.ToString();
+                Quantity_textBox.Text = selectedBilledProduct[3].Value.ToString();
+                Price_textBox.Text = selectedBilledProduct[4].Value.ToString();
+                MRP_textBox.Text = selectedBilledProduct[5].Value.ToString();
+            }
         }
 
         private void BilledProducts_GridView_RowsRemoved()
@@ -319,9 +325,11 @@ namespace AOneStoreBillingSystem
         private void BillPage_KeyUp(object sender, KeyEventArgs e)
         {
             //DialogResult result;
-            if (e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F2)
             {
-                Print_Bill_Btn_Click(null, null);
+                DialogResult result = MessageBox.Show("Are You Sure To Take Bill?", "Final Bill", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                    Print_Bill_Btn_Click(null, null);
                 Product_Search_Textbox.Focus();
             }
             else if(e.KeyCode == Keys.Enter)
@@ -339,17 +347,6 @@ namespace AOneStoreBillingSystem
                         Quantity_textBox.Focus();
                     }
                 }
-                //else if(BilledProducts_GridView.Rows.Count > 0)
-                //{
-                //   result = MessageBox.Show("Are You Sure To Take Bill?", "Final Bill", MessageBoxButtons.OKCancel);
-                //    if (result == DialogResult.OK)
-                //        Print_Bill_Btn_Click(null, null);
-                //    else
-                //    {
-                //        this.KeyPreview = false;
-                //        return;
-                //    }
-                //}
 
             }
             else if (e.KeyCode == Keys.Up)
@@ -380,173 +377,6 @@ namespace AOneStoreBillingSystem
             {
                 Quantity_textBox.Focus();
             }
-        }
-
-        private void PrintReceipt()
-        {
-            //PrintDialog printDialog = new PrintDialog();
-            //PrintDocument printDocument = new PrintDocument();
-            //printDialog.Document = printDocument;
-            //printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
-            //DialogResult result = printDialog.ShowDialog();
-
-            //if(result == DialogResult.OK)
-            //{
-            //    printDocument.Print();
-            //}
-            PrintDialog pd = new PrintDialog();
-            pdoc = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            Font font = new Font("Courier New", 15);
-
-
-            PaperSize psize = new PaperSize("Custom", 100, 200);
-            //ps.DefaultPageSettings.PaperSize = psize;
-
-            pd.Document = pdoc;
-            pd.Document.DefaultPageSettings.PaperSize = psize;
-            //pdoc.DefaultPageSettings.PaperSize.Height =320;
-            pdoc.DefaultPageSettings.PaperSize.Height = 820;
-
-            pdoc.DefaultPageSettings.PaperSize.Width = 520;
-
-            pdoc.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
-
-            DialogResult result = pd.ShowDialog();
-            //if (result == DialogResult.OK)
-            //{
-            //    PrintPreviewDialog pp = new PrintPreviewDialog();
-            //    pp.Document = pdoc;
-            //    result = pp.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    pdoc.Print();
-                }
-            //}
-        }
-
-        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            Graphics graphics = e.Graphics;
-            //Font font = new Font("Courier New", 12);
-
-            //float fontHeight = font.GetHeight();
-            //int startX = 10;
-            //int startY = 10;
-            //int offset = 40;
-            Font font10 = new Font("Courier New", 10);
-            Font font12 = new Font("Courier New", 12);
-            Font font14 = new Font("Courier New", 14,FontStyle.Bold);
-            Font fontBold = new Font("Courier New",12, FontStyle.Bold);
-
-            float leading = 4;
-            float lineheight10 = font10.GetHeight() + leading;
-            float lineheight12 = font12.GetHeight() + leading;
-            float lineheight14 = font14.GetHeight() + leading;
-
-            float startX = 0;
-            float startY = leading;
-            float Offset = 0;
-
-            StringFormat formatLeft = new StringFormat(StringFormatFlags.NoClip);
-            StringFormat formatCenter = new StringFormat(formatLeft);
-            StringFormat formatRight = new StringFormat(formatLeft);
-
-            formatCenter.Alignment = StringAlignment.Center;
-            formatRight.Alignment = StringAlignment.Far;
-            formatLeft.Alignment = StringAlignment.Near;
-
-            SizeF layoutSize = new SizeF(e.PageBounds.Width - 50 - Offset*2, lineheight14);
-            RectangleF layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-
-            Brush brush = Brushes.Black;
-            string underLine = "------------------------------------------------------";
-            graphics.DrawString("Aone Store", font14, brush, layout, formatCenter);
-            Offset = Offset + lineheight14;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString("Bill No :" + cashier.GetCurrentBillNumber(), font14, brush, layout, formatLeft);
-            Offset = Offset + lineheight14;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString("Date :" + DateTime.Now, font12, brush, new RectangleF(layout.X, layout.Y, e.PageBounds.Width - 150, layout.Height), formatLeft);
-            Offset = Offset + lineheight12;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString(underLine, font10, brush, new RectangleF(layout.X, layout.Y, e.PageBounds.Width - 40, layout.Height), formatLeft);
-            Offset = Offset + lineheight10;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString("ITEM NAME", font12, brush, layout, formatLeft);
-            graphics.DrawString("RATE", font12, brush, e.PageBounds.Width - 280, layout.Y, formatRight);
-            graphics.DrawString("QTY", font12, brush, e.PageBounds.Width - 180, layout.Y, formatRight);
-            graphics.DrawString("AMOUNT", font12, brush, e.PageBounds.Width - 70, layout.Y, formatRight);
-            Offset = Offset + lineheight10;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString(underLine, font10, brush, new RectangleF(layout.X, layout.Y, e.PageBounds.Width - 40, layout.Height), formatLeft);
-
-
-            for (int i = 0; i < BilledProducts_GridView.Rows.Count; i++)
-            {
-                Offset = Offset + lineheight10;
-                layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-                string productName = BilledProducts_GridView.Rows[i].Cells[2].Value.ToString();
-                graphics.DrawString(productName.Length > 15 ? productName.Substring(0,15) : productName, font10, brush, new RectangleF(layout.X, layout.Y, 200, layout.Height), formatLeft);
-                graphics.DrawString(BilledProducts_GridView.Rows[i].Cells[4].Value.ToString(), font10, brush, e.PageBounds.Width - 280, layout.Y, formatRight);
-                graphics.DrawString(BilledProducts_GridView.Rows[i].Cells[3].Value.ToString(), font10, brush, e.PageBounds.Width - 190, layout.Y, formatRight);
-                graphics.DrawString(BilledProducts_GridView.Rows[i].Cells[6].Value.ToString(), font10, brush, e.PageBounds.Width - 80, layout.Y, formatRight);
-            }
-
-            Offset = Offset + lineheight14;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString(underLine, font10, brush, new RectangleF(layout.X, layout.Y, e.PageBounds.Width - 40, layout.Height), formatLeft);
-            Offset = Offset + lineheight14;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString("Grand Total :", fontBold, brush, e.PageBounds.Width - 250, layout.Y, formatCenter);
-            graphics.DrawString(TotalBill_Amount_textBox.Text, fontBold, brush, e.PageBounds.Width - 80, layout.Y, formatRight);
-            Offset = Offset + lineheight14;
-            layout = new RectangleF(new PointF(startX, startY + Offset), layoutSize);
-            graphics.DrawString("Round Amt   :", fontBold, brush, e.PageBounds.Width - 250, layout.Y, formatCenter);
-            graphics.DrawString(Math.Round(Convert.ToDouble(TotalBill_Amount_textBox.Text)).ToString("N", new CultureInfo("en-IN")), fontBold, brush, e.PageBounds.Width - 80, layout.Y, formatRight);
-
-            font10.Dispose(); font12.Dispose(); font14.Dispose();
-            //Graphics graphics = e.Graphics;
-            //Font font = new Font("Courier New", 10);
-            //float fontHeight = font.GetHeight();
-            //int startX = 50;
-            //int startY = 55;
-            //int Offset = 40;
-            //graphics.DrawString("Welcome to MSST", new Font("Courier New", 14),
-            //                    new SolidBrush(Color.Black), startX, startY + Offset);
-            //Offset = Offset + 20;
-            //graphics.DrawString("Ticket No:" + BilledProducts_GridView.Rows[0].Cells[2].Value.ToString(),
-            //         new Font("Courier New", 14),
-            //         new SolidBrush(Color.Black), startX, startY + Offset);
-            //Offset = Offset + 20;
-            //graphics.DrawString("Ticket Date :" + BilledProducts_GridView.Rows[0].Cells[3].Value.ToString(),
-            //         new Font("Courier New", 12),
-            //         new SolidBrush(Color.Black), startX, startY + Offset);
-            //Offset = Offset + 20;
-            //String underLine = "------------------------------------------";
-            //graphics.DrawString(underLine, new Font("Courier New", 10),
-            //         new SolidBrush(Color.Black), startX, startY + Offset);
-
-            //Offset = Offset + 20;
-            //String Source = BilledProducts_GridView.Rows[0].Cells[4].Value.ToString();
-            //graphics.DrawString(Source, new Font("Courier New", 10),
-            //         new SolidBrush(Color.Black), startX, startY + Offset);
-
-            //Offset = Offset + 20;
-            //String Grosstotal = "Total Amount to Pay = " + TotalBill_Amount_textBox.Text;
-
-            //Offset = Offset + 20;
-            //underLine = "------------------------------------------";
-            //graphics.DrawString(underLine, new Font("Courier New", 10),
-            //         new SolidBrush(Color.Black), startX, startY + Offset);
-            //Offset = Offset + 20;
-
-            //graphics.DrawString(Grosstotal, new Font("Courier New", 10),
-            //         new SolidBrush(Color.Black), startX, startY + Offset);
-            //Offset = Offset + 20;
-            ////String DrawnBy = this.drawnBy;
-            ////graphics.DrawString("Conductor - " + DrawnBy, new Font("Courier New", 10),
-            ////         new SolidBrush(Color.Black), startX, startY + Offset);
         }
     }
 }
